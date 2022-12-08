@@ -1,18 +1,54 @@
-{% paginate collection.products by 2 %}
-  <h1>{{ collection.title }}</h1>
-  {% for product in collection.products %}
-    <div>
-      <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-      {{ product.price | money }}
-      {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
-      <a href="{{ product.url | within: collection }}">
-        <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-      </a>
-    </div>
-  {% else %}
-    <p>no matches</p>
-  {% endfor %}
-  {% if paginate.pages > 1 %}
-    {{ paginate | default_pagination }}
-  {% endif %}
-{% endpaginate %}
+<section class="container" id="productsContainer">
+  {% paginate collection.products by 5 %}
+      <div class="row my-5">
+        <h1 class="text-center">{{ collection.title }}</h1>
+      </div>
+
+      <div class="row">
+         <form id="filterForm my-5">
+          {% for product_type in collection.all_types %}
+            <label for="{{ product_type }}">{{ product_type }}</label>
+            <input type="checkbox" id="{{product_type}}" name="type" value="{{ product_type }}" unchecked>
+          {% endfor %}
+          <button id="filterFormBtn" class="btn btn-primary w-10">Filter</button>
+        </form>
+        
+{%- comment -%} 
+        {% for tag in collection.all_tags %}
+
+          {%if current_tags contains tag %}
+            {{ tag | link_to_remove_tag: tag }}
+          {% else %}
+            {{ tag | link_to_add_tag: tag }}
+          {% endif %}
+        {% endfor %} {%- endcomment -%}
+
+      </div>
+
+      <div class="row justify-content-center my-5">
+        {% for product in collection.products %}
+          {% assign image = product.featured_media.preview_image %}
+            <article class="card" style="width: 10rem;">
+              {% if image != blank %}
+                <a href="#">
+                   <img class="card-img-top" src="{{ image | img_url: 'small' }}" alt="{{ product.title }}">
+                </a>
+                {% else %}
+                   {{ 'product-1' | placeholder_svg_tag: 'card-img-top' }}       
+              {% endif %}
+                <div class="card-body">
+                  <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
+                  <p>{{ product.price | money_without_trailing_zeros }}</p>
+                </div>
+            </article>
+
+          {% else %}
+        <p>No matches</p>
+        {% endfor %}
+      </div>
+     
+    
+      {% render 'pagination', paginate: paginate %}
+      {% endpaginate %}
+  
+</section>

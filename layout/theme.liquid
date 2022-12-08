@@ -8,8 +8,11 @@
   <link rel="canonical" href="{{ canonical_url }}">
   <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
   {{ content_for_header }} <!-- Header hook for plugins -->
+  {%- comment -%} Bootstrap is being used to breach some issue with css. https://getbootstrap.com/  {%- endcomment -%}
   {{ 'bootstrap.min.css' | asset_url | stylesheet_tag }}
   {{ 'application.css' | asset_url | stylesheet_tag }}
+  <script src="https://unpkg.com/vue@3.0.5"></script> 
+
 </head>
 <body>
 
@@ -19,6 +22,9 @@
     {{ content_for_layout }}
   </main>
   {{ 'bootstrap.min.js' | asset_url | script_tag }}
-{{ 'application.js' | asset_url | script_tag }}
+  {{ 'application.js' | asset_url | script_tag }}
 </body>
 </html>
+
+
+
