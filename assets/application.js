@@ -1,6 +1,4 @@
 
-
-
 // Filtering
 
 // const filterForm = document.querySelector('#filterForm');
@@ -31,6 +29,8 @@ if(filterFormBtn != null) {
         filterFormBtn.innerHTML = 'disabled'
 
         // https://hypevintage-aalborg.myshopify.com/collections/types?q=Accessories
+        // https://hypevintage-aalborg.myshopify.com/collections/types?constraint=jumper&q=Long-sleeve
+        // https://hypevintage-aalborg.myshopify.com/collections/types?constraint=white%2Bwinter&q=Long-sleeve
         const newUrl = `${url}types?q=${checkedType}`;
         
         window.location.href = newUrl;

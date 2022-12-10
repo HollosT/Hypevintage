@@ -5,24 +5,21 @@
       </div>
 
       <div class="row">
-         <form id="filterForm my-5">
+         <form id="filterForm">
           {% for product_type in collection.all_types %}
             <label for="{{ product_type }}">{{ product_type }}</label>
             <input type="radio" id="{{product_type}}" name="type" value="{{ product_type }}">
           {% endfor %}
-          <button id="filterFormBtn" class="btn btn-primary w-10">Filter</button>
-        </form>
-        
-{%- comment -%} 
-        {% for tag in collection.all_tags %}
-
-          {%if current_tags contains tag %}
-            {{ tag | link_to_remove_tag: tag }}
-          {% else %}
-            {{ tag | link_to_add_tag: tag }}
-          {% endif %}
-        {% endfor %} {%- endcomment -%}
-
+          
+          
+          {% for tag in collection.all_tags %}
+            
+              <label for="{{ tag }}">{{ tag |capitalize }}</label>
+              <input type="checkbox" name="{{ tag }}" id="{{ tag }}">  
+            {% endfor %}
+            <button id="filterFormBtn" class="btn btn-primary w-10">Filter</button>
+          </form>
+            
       </div>
 
       <div class="row justify-content-center my-5">
