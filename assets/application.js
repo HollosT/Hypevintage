@@ -1,39 +1,65 @@
-
 // Filtering
-
-// const filterForm = document.querySelector('#filterForm');
 const filterFormBtn = document.querySelector('#filterFormBtn')
 
 if(filterFormBtn != null) {
-    const checkBoxes = document.querySelectorAll('input[name="type"]')
-    let url = window.location.href.slice(0, -3);
-    let checkedType;
+    const typeInputs = document.querySelectorAll('input[name="type"]')
+    const tagInputs = document.querySelectorAll('input[name="tag"]')
 
-    checkBoxes.forEach((checkBox, i) => {
+    let url;
+    let type;
+    let tags = []; 
 
-        checkBox.addEventListener('change', e => {
-            checkedType = e.target.value
+    const getType = () => {
+        typeInputs.forEach((typeInp, i) => {
+            typeInp.addEventListener('change', e => {
+                type = e.target.value
+            })
         })
-    })
+    }
+
+    const getTags = () => {
+        tagInputs.forEach(tagInp => {
+            if(tagInp.checked) {
+                tags.push(tagInp.value.toLowerCase())
+            }
+        })
+
+    }
+
+    const prepareTagsQuery = () => {
+        if(tags.length === 1) {
+            url += tags[0]
+        } else {
+            tags.forEach((tag, i) => {
+                url += tag + '+'
+
+                if(tags.length -1 === i) {
+                    url += tag
+                }
+            })
+        }
+    }
 
     filterFormBtn.addEventListener('click', e => {
         e.preventDefault()
+        url = window.location.href.slice(0, -3);
+        getTags();
+        getType();
         
-        let checked = []
-
-        checkBoxes.forEach(checkbox => {
-            checked.push(checkbox.value.toLowerCase())
-        })
+        if(tags.length > 0) {
+            url += 'all/'
+            prepareTagsQuery()
+        }
+        
         console.log(url);
 
-        filterFormBtn.innerHTML = 'disabled'
 
         // https://hypevintage-aalborg.myshopify.com/collections/types?q=Accessories
         // https://hypevintage-aalborg.myshopify.com/collections/types?constraint=jumper&q=Long-sleeve
         // https://hypevintage-aalborg.myshopify.com/collections/types?constraint=white%2Bwinter&q=Long-sleeve
-        const newUrl = `${url}types?q=${checkedType}`;
+        // const newUrl = `${url}types?q=${type}`;
         
-        window.location.href = newUrl;
+        window.location.href = url;
     })
 
   
