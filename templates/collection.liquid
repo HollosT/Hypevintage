@@ -1,83 +1,85 @@
-<section class="container" id="productsContainer">
+<section class="container" >
+  
+  
+  <div class="row my-5" >
+    <h1 class="text-center">{{ collection.title }}</h1>
+  </div>
+
+  
+
   {% paginate collection.products by 5 %}
-      <div class="row my-5">
-        <h1 class="text-center">{{ collection.title }}</h1>
-      </div>
-
-      <div class="row">
-         {%- comment -%} <form id="filterForm">
-          {% for product_type in collection.all_types %}
-            <label for="{{ product_type }}">{{ product_type }}</label>
-            <input type="radio" id="{{product_type}}" name="type" value="{{ product_type }}">
-          {% endfor %} {%- endcomment -%}
-
-            {% if collection.all_tags.size > 0 %}
-            <ul class="tag-filters">
-              {% for tag in collection.all_tags %}
-                {% if current_tags contains tag %}
-                  <li class="tag-filters__item active">{{ tag | link_to_remove_tag: tag }}</li>
-                {% else %}
-                  <li class="tag-filters__item">{{ tag | link_to_add_tag: tag }}</li>
-                {% endif %}
+  
+  <div class="row">
+    <div class="col-3">
+      {% render 'filters.liquid', results: collection %}
+    </div>
+    
+    <div class="col-9">
+      <div class="row justify-content-center my-5" id="productsContainer">
+        <div class="container d-flex justify-content-between align-items-center">
+          {%- comment -%} Active filters {%- endcomment -%}
+        
+          <div class="active-filters d-flex p-3">
+            <a class="py-1 px-4 rounded-pill bg-dark text-white" href="{{ collection.url }}?sort_by={{ collection.sort_by }}" class="active-filters__clear">Clear all</a>
+        
+            {%- for filter in collection.filters -%}
+              {%- if filter.type == "price_range" -%}
+                {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
+                  <a class="active-filters__remove-filter" href="{{ filter.url_to_remove }}">
+                    {%- assign min_value = filter.min_value.value | default: 0 -%}
+                    {%- assign max_value = filter.max_value.value | default: filter.range_max -%}
+                    {{ min_value | money }} - {{ max_value | money }} X
+                  </a>
+                {%- endif -%}
+              {%- else -%}
+                {%- for filter_value in filter.active_values -%}
+                  <a class="active-filters__remove-filter py-1 px-4 rounded-pill bg-light text-dark" href="{{ filter_value.url_to_remove }}">
+                    {{ filter.label }}: {{ filter_value.label }} X
+                  </a>
+                {%- endfor -%}
+              {%- endif- %}
+            {%- endfor -%}
+          </div>
+          <div class="collection__sort">
+            <select  name="sorting" id="sort_by" class="py-3 px-4 my-3 border border-black">
+              {% for option in collection.sort_options %}
+                <option value="{{ option.value }}"
+                  {% if option.value == collection.sort_by %}
+                    selected
+                  {% endif %}
+                >{{option.name}}</option>
               {% endfor %}
-            </ul>
-          {% endif %}
-
-            {% if collection.all_types.size > 0 %}
-            <ul class="tag-filters">
-              {% for type in collection.all_types %}
-                {% if current_types contains type %}
-                  <li class="type-filters__item active">{{ type | link_to_remove_type: type }}</li>
-                {% else %}
-                  <li class="type-filters__item">{{ type | link_to_add_type: type }}</li>
-                {% endif %}
-              {% endfor %}
-            </ul>
-          {% endif %}
-
-          {% for filter in collection.filters %}
-            <span>
-              {{ filter.label}}
-
-            </span>
-            
-          {% endfor %}
-
-          
-{%- comment -%}           
-           {% for tag in collection.all_tags %}
-              <label for="{{ tag }}">{{ tag |capitalize }}</label>
-              <input type="checkbox" name="tag" id="{{ tag }}" value="{{ tag }}">  
-            {% endfor %}
-            <button id="filterFormBtn" class="btn btn-primary w-10">Filter</button>
-          </form> {%- endcomment -%}
-            
-      </div>
-
-      <div class="row justify-content-center my-5">
+            </select>
+          </div>
+      
+        </div>
+         
         {% for product in collection.products %}
           {% assign image = product.featured_media.preview_image %}
-            <article class="card" style="width: 10rem;">
-              {% if image != blank %}
-                <a href="#">
-                   <img class="card-img-top" src="{{ image | img_url: 'small' }}" alt="{{ product.title }}">
-                </a>
-                {% else %}
-                   {{ 'product-1' | placeholder_svg_tag: 'card-img-top' }}       
-              {% endif %}
-                <div class="card-body">
-                  <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
-                  <p>{{ product.price | money_without_trailing_zeros }}</p>
-                </div>
-            </article>
-
+          <article class="card" style="width: 10rem;">
+            {% if image != blank %}
+              <a href="#">
+                <img class="card-img-top" src="{{ image | img_url: 'small' }}" alt="{{ product.title }}">
+              </a>
+              {% else %}
+              {{ 'product-1' | placeholder_svg_tag: 'card-img-top' }}       
+            {% endif %}
+            <div class="card-body">
+              <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
+              <p>{{ product.price | money_without_trailing_zeros }}</p>
+            </div>
+          </article>
+          
           {% else %}
-        <p>No matches</p>
+          <p>No matches</p>
         {% endfor %}
       </div>
-     
-    
+    </div>
+      
+      
       {% render 'pagination', paginate: paginate %}
       {% endpaginate %}
+    </div>
+
+  </section>
   
-</section>
