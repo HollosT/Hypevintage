@@ -34,6 +34,15 @@
               {% endfor %}
             </ul>
           {% endif %}
+
+          {% for filter in collection.filters %}
+            <span>
+              {{ filter.label}}
+
+            </span>
+            
+          {% endfor %}
+
           
 {%- comment -%}           
            {% for tag in collection.all_tags %}
