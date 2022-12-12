@@ -68,13 +68,27 @@ if(filterFormBtn != null) {
         console.log(url);
 
 
-        // https://hypevintage-aalborg.myshopify.com/collections/types?q=Accessories
-        // https://hypevintage-aalborg.myshopify.com/collections/types?constraint=jumper&q=Long-sleeve
-        // https://hypevintage-aalborg.myshopify.com/collections/types?constraint=white%2Bwinter&q=Long-sleeve
-        // const newUrl = `${url}types?q=${type}`;
-        
         window.location.href = url;
     })
 
   
+}
+
+
+// Cart Update
+document.querySelector('DOMContentLoaded', () => {
+    updateCart()
+    console.log('hello');
+})
+
+
+const updateCart = () => {
+    fetch('/cart.js')
+    .then(res => res.json())
+    .then(data => {
+        document.querySelector('#numberOfCartItems').innerHTML = data.items.length
+    })
+    .catch(err => {
+        console.log(err);
+    })
 }
