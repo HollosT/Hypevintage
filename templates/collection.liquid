@@ -60,7 +60,7 @@
           {% assign image = product.featured_media.preview_image %}
           <article class="card" style="width: 10rem;">
             {% if image != blank %}
-              <a href="#">
+              <a href="#" id="productInfoAnchor" product-handle="{{ product.handle }}" product-price="{{ product.price | money_without_trailing_zeros }}">
                 <img class="card-img-top" src="{{ image | img_url: 'small' }}" alt="{{ product.title }}">
               </a>
               {% else %}
@@ -78,6 +78,7 @@
       </div>
     </div>
       
+    {% render 'cart-popup' %}
       
       {% render 'pagination', paginate: paginate %}
       {% endpaginate %}
