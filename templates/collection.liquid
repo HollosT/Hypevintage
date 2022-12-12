@@ -20,7 +20,7 @@
           {%- comment -%} Active filters {%- endcomment -%}
         
           <div class="active-filters d-flex p-3">
-            <a class="py-1 px-4 rounded-pill bg-dark text-white" href="{{ collection.url }}?sort_by={{ collection.sort_by }}" class="active-filters__clear">Clear all</a>
+              <a class="py-1 px-4 rounded-pill bg-dark text-white" href="{{ collection.url }}?sort_by={{ collection.sort_by }}" class="active-filters__clear">Clear all</a> 
         
             {%- for filter in collection.filters -%}
               {%- if filter.type == "price_range" -%}
@@ -40,6 +40,8 @@
               {%- endif- %}
             {%- endfor -%}
           </div>
+          {%- comment -%}End of Active filters {%- endcomment -%}
+
           <div class="collection__sort">
             <select  name="sorting" id="sort_by" class="py-3 px-4 my-3 border border-black">
               {% for option in collection.sort_options %}

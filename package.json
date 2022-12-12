@@ -1,0 +1,29 @@
+{
+  "name": "hypevintage",
+  "version": "1.0.0",
+  "description": "This is a web shop for selling vintage, quality brands in Denmark. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HollosT/Hypevintage.git"
+  },
+  "keywords": [
+    "vintage",
+    "quality",
+    "web",
+    "shop",
+    "Hypevintage",
+    "Denmark",
+    "shopify",
+    "trendy"
+  ],
+  "author": "Group 202",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HollosT/Hypevintage/issues"
+  },
+  "homepage": "https://github.com/HollosT/Hypevintage#readme"
+}
