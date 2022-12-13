@@ -5,8 +5,8 @@ let productModal;
 
 if(document.getElementById('productInfoModal') != null) {
     productModal = new bootstrap.Modal(document.getElementById('productInfoModal'), {});
-    
 }
+
 if(productInfoAnchors.length > 0) {
     productInfoAnchors.forEach(item => {
         item.addEventListener('click', event => {
@@ -26,12 +26,9 @@ if(productInfoAnchors.length > 0) {
             variantSelect.innerHTML = '';
 
             variants.forEach(function(variant, index) {
-
                 variantSelect.options[variantSelect.options.length] = new Option(variant.option1, variant.id)
-                
             })
             productModal.show();
-
 
            });
         })
@@ -46,7 +43,6 @@ if(modalAddToCartForm != null) {
     if( modalAddToCartForm != null ) {
         modalAddToCartForm.addEventListener("submit", function(e) {
             e.preventDefault();
-            
             
             let formData = {
                 'items': [
@@ -80,15 +76,17 @@ if(modalAddToCartForm != null) {
 }
 
 // Update card
-let currentPopupContainer;
+
 const updatePopup = (data) => {
-    console.log(data.items);
+
+    if(document.querySelector('#responseMessage')) {
+        document.querySelector('#responseMessage').innerHTML = ''
+    }
+    
     let order;
     let item;
 
-    const popupBodyContainer = document.querySelector('#popupContainer')
-    currentPopupContainer = popupBodyContainer;
-    popupBodyContainer.innerHTML = ''
+    const responseContainer = document.querySelector('#responseContainer')
 
     if(data.status && data.description) {
         // 
@@ -100,53 +98,33 @@ const updatePopup = (data) => {
 
     }
     const markup = drawCard(item, order);
-    popupBodyContainer.insertAdjacentHTML('afterbegin', markup)
-    addHandlerToContinueShoppingBtn();
+    responseContainer.insertAdjacentHTML('afterbegin', markup)
+
 }
 
 // Draw response card 
 const drawCard = (item, order) => {
     let title;
     let body;
-    let btnCaption;
     switch(order) {
         case('success'): 
             title = `${item.quantity} ${item.title}`
             body = 'Successfully added to the cart!'
-            btnCaption = 'Continue shopping'
         break
         case('failure'):
             title = `Oops something went wrong with!`
             body = item.description
-            btnCaption = 'Go back'
     }
 
     return `
-        <div class="row" id="responseContainer">
-            <div class="col-12 col-md-6">
+        <div class="row" id="responseMessage">
             <h3>${title}</h3>
             <p>${body}</p>
-            <div class="container d-flex justify-content-between align-items-center">
-                <a href="/cart" class="btn btn-success col-auto">See cart</a>
-                <button class="btn btn-success col-auto" id="continueShoppingBtn">${btnCaption}</button>
-            </div>
-            </div>
+
         </div>
     `
 }
 
-const addHandlerToContinueShoppingBtn = () => {
-
-    const popupMainContainer = document.querySelector('#popupMainContainer')
-    const popupBodyContainer = document.querySelector('#popupContainer')
-    const contineShoppingBtn = document.querySelector('#continueShoppingBtn');
-    contineShoppingBtn.addEventListener('click', e => {
-        console.log(currentPopupContainer);
-        popupBodyContainer.innerHTML = ''
-        popupMainContainer.innerHTML = currentPopupContainer
-    })
-
-}
 
 
 // Update cart

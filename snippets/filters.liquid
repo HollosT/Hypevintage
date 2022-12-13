@@ -122,7 +122,7 @@
           fetch('/collections/{{ collection.handle }}?' + queryString)
           .then(res => res.text())
           .then(data => {
-            console.log('change')
+
             let html_div = document.createElement('div');
             html_div.innerHTML = data;
             let html_dom = html_div.querySelector('#productsContainer').innerHTML;
