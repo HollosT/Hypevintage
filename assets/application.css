@@ -20,3 +20,6 @@ a {
     margin-bottom: .5vw;
 }
 
+.hide {
+    display: none;
+}
