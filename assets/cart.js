@@ -142,3 +142,92 @@ const updateCart = () => {
         console.log(err);
     })
 }
+
+// Add to cart on a product page
+
+const productContainer = document.querySelector('#productContainer');
+
+if(productContainer != null) {
+    const addBtn = document.querySelector('#addToCartBtn');
+
+    addBtn.addEventListener('click', e => {
+        e.preventDefault()
+        const variant = document.querySelector('#productSelectProductPage').value;
+        const quantity = document.querySelector('#quantityProductPage').value;
+
+
+
+        const formData = {
+            'items': [
+                {
+                    'id': variant,
+                    'quantity': quantity
+                }
+            ]
+        };
+        
+        fetch('/cart/add.js', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then((resp) => { 
+            return resp.json();
+        })
+        .then(data => {
+            updateCart();
+            openPopup(data)
+        })
+        .catch((err) => {
+            console.error('Error: ' + err);
+        })
+        
+    })
+
+
+
+    const openPopup = (data) => {
+        const productModal = new bootstrap.Modal(document.getElementById('productModal'), {});
+        const bodyContainer = document.querySelector('#contentContainer');
+        bodyContainer.innerHTML = '';
+        let order;
+        let item;
+
+        if(data.status && data.description) {
+            // 
+            item = data
+            order = 'failure'
+        } else {
+            item = data.items[0]
+            order = 'success'
+    
+        }
+
+        let title;
+        let body;
+        switch(order) {
+            case('success'): 
+                title = `${item.quantity} ${item.title}`
+                body = 'Successfully added to the cart!'
+            break
+            case('failure'):
+                title = `Oops something went wrong with!`
+                body = item.description
+        }
+        
+        const markup = `
+        <div class="col-12 col-md-6" >
+            <h2>${title}</h2>
+            <p>${body}</p>
+        </div>
+        `
+
+        bodyContainer.insertAdjacentHTML('afterbegin', markup)
+
+        productModal.show();
+        
+    }
+
+}
