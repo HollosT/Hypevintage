@@ -103,7 +103,7 @@ const updatePopup = (data) => {
 }
 
 // Draw response card 
-const drawCard = (item, order) => {
+const drawCard = async (item, order) => {
     let title;
     let body;
     switch(order) {
@@ -116,14 +116,22 @@ const drawCard = (item, order) => {
             body = item.description
     }
 
-    return `
+
+    const markup = `
         <div class="row" id="responseMessage">
             <h3>${title}</h3>
             <p>${body}</p>
-
+            <section id="productRecommendation" class="row-content-justify-center my-5">
+                <div class="text-center"><h1>You may also like this</h1></div>
+                <div id="product_recommendation_body">
+                    ${relevantData}
+                </div>
+            </section>
         </div>
     `
+    return markup
 }
+
 
 
 
@@ -196,7 +204,6 @@ if(productContainer != null) {
         let item;
 
         if(data.status && data.description) {
-            // 
             item = data
             order = 'failure'
         } else {
