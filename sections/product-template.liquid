@@ -16,10 +16,11 @@
 
           <form >
                 <div class="mb-3">
-
-                {% for variant  in products. %}
-                    
-                {% endfor %}
+                    <ul>
+                        {% for variant  in products.variants %}
+                            <li class="">{{ variant }}</li>        
+                        {% endfor %}
+                    </ul>
                     <select name="id" id="productSelectProductPage" class="form-select">
                         {% for variant in product.variants %}
                             {% if variant.available %}
