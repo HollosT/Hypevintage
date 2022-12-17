@@ -16,9 +16,11 @@
 
           <form >
                 <div class="mb-3">
-                    <ul>
-                        {% for variant  in products.variants %}
-                            <li class="">{{ variant }}</li>        
+                    <ul class="list-group">
+                        {% for variant in product.variants %}
+                            {% if variant.available %}
+                                <li class="list-group-item">{{ variant.title }}</li>        
+                            {% endif %}
                         {% endfor %}
                     </ul>
                     <select name="id" id="productSelectProductPage" class="form-select">
