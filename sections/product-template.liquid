@@ -16,24 +16,29 @@
 
           <form >
                 <div class="mb-3">
+                    {% if product.variants.size == 1 %}
                     <ul class="list-group">
                         {% for variant in product.variants %}
                             {% if variant.available %}
-                                <li class="list-group-item">{{ variant.title }}</li>        
-                            {% endif %}
-                        {% endfor %}
+                            <li class="list-group-item">{{ variant.title }}</li>        
+                        {% endif %}
+                    {% endfor %}
                     </ul>
+                    {% else %}
                     <select name="id" id="productSelectProductPage" class="form-select">
                         {% for variant in product.variants %}
-                            {% if variant.available %}
-                                <label for="{{ variant.id  }}">{{ variant.title  }}</label>
-                                <input type="checkbox" value="{{ variant.id  }}" id="{{ variant.id  }}" />
-                            {% else %}
-                            <label for="{{ variant.id  }}">{{ variant.title  }}</label>
-                            <input type="checkbox" value="{{ variant.id  }}" id="{{ variant.id  }}" />
-                            {% endif %}
+                        {% if variant.available %}
+                            <option value="{{ variant.id }}">
+                                {{variant.title}}
+                            </option>
+                        {% else %}
+                             <option value="{{ variant.id }}" disabled="disabled">{{variant.title}}</option>
+                        {% endif %}
                         {% endfor %}
                     </select>
+                        
+
+                    {% endif %}
                 </div>
                 
                 <div class="mb-3">
