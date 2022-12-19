@@ -1,0 +1,15 @@
+<ul class="navbar-nav">
+    {% for link in linklists.products.links %}
+        <ul class="d-flex flex-column">
+            <h5>{{ link.title  }}</h5>
+            <ul class="d-flex flex-column navbar-nav">
+              {% for childlink in link.links %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+                </li>
+               {% endfor %}
+          </ul>
+
+      </ul>
+    {% endfor %}
+</ul>
