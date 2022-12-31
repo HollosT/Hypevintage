@@ -21,9 +21,19 @@
     text-transform: uppercase;
 }
 
+.mobile-nav_icon--container {
+    height: 100%;
+    border-right: 1px solid black;
+    padding-right: 2vw;
+    
+}
+.mobile-nav_icon--container[data-cart="true"] {
+    border-left: 1px solid black;
+    border-right: 0px;
+    padding-right: 0vw;
+    padding-left: 2vw;
 
-
-
+}
 
 
 .hamburger-menu {
@@ -43,4 +53,10 @@
 .opened{
     transition: all 250ms ease-in;
     transform: translateX(0vw);
+ }
+
+ .hero-img {
+    width: 100% !important;
+
+    object-fit: fill;
  }

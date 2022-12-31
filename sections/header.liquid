@@ -1,19 +1,20 @@
-<nav class="mobile-nav py-200">
+<nav class="mobile-nav">
   <div>
-    <span id="hamburgerIcon" class="material-symbols-outlined" data-icon="true">
-      menu
-    </span>
-
-    <h1 class="px-2">Hypevintage</h1>
+    <div class="mobile-nav_icon--container">
+      <span id="hamburgerIcon" class="material-symbols-outlined py-200" data-icon="true">
+        menu
+      </span>
+    </div>
+    <h1 class="py-200">Hypevintage</h1>
 
     {%- comment -%}
     Cart
     {%- endcomment -%}
   <nav>
       <ul>
-        <li>
+        <li class="mobile-nav_icon--container" data-cart="true">
           <a href="/cart">
-            <span class="material-symbols-outlined" data-icon="true">shopping_bag</span>
+            <span class="material-symbols-outlined py-200" data-icon="true">shopping_bag</span>
             {%- comment -%}
               Numbering how many items the cart has
               <span id="numberOfCartItems" class="badge bg-danger rounded-pill">0</span>

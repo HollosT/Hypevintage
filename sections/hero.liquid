@@ -1,34 +1,49 @@
 <section>
+    {% if section.settings.image != blank %}
+        <img class="hero-img" src="{{ section.settings.image | img_url: 'master' }}" alt="{{ section.settings.image.alt }}">
+        {% else %}
+            {% capture current %}{% cycle 1,2 %}{% endcapture %}
+           {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+    {% endif %}
+
     <div>
-        <h2>{{ section.settings.title }}</h2>
-        {{ section.settings.description }}
+        <h1>{{ section.settings.title }}</h1>
+        {{ section.settings.description }}       
     </div>
+
 </section>
 
-{% schema %}
-{
-    "name": "Hero",
-    "class": "hero-section",
-    "settings": [
-        {
-            "type": "text",
-            "id": "title",
-            "default": "Title of the page",
-            "label": "Heading Title"
-        },
-        {
-            "type": "richtext",
-            "id": "description",
-            "default": "<p>Small introduction of the page</p>",
-            "label": "Heading Description"
-        }
-    ],
 
-    "presets": [
-        {
-            "category": "Hero",
-            "name": "Simple Hero"
-        }
-    ]
-}
+
+{% schema %}
+    {
+        "name": "Hero",
+        "class": "hero-section",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Heading Background Title"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "default": "Example Heading",
+                "label": "Heading Title"
+            },
+            {
+                "type": "richtext",
+                "id": "description",
+                "default": "<p>Example Paragraph</p>",
+                "label": "Heading Description"
+            }
+        ],
+
+        "presets": [
+            {
+                "category": "Hero",
+                "name": "Simple Hero"
+            }
+        ]
+    }
 {% endschema %}
