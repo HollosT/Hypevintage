@@ -8,19 +8,23 @@
   <link rel="canonical" href="{{ canonical_url }}">
   <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
   {{ content_for_header }} <!-- Header hook for plugins -->
-  {%- comment -%} Bootstrap is being used to breach some issue with css. https://getbootstrap.com/  {%- endcomment -%}
-  {{ 'bootstrap.min.css' | asset_url | stylesheet_tag }}
+  {%- comment -%} Materials icons are being used for having icons https://fonts.google.com/icons  {%- endcomment -%}
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   {{ 'application.css' | asset_url | stylesheet_tag }}
+  {{ 'navigation.css' | asset_url | stylesheet_tag }}
+  
   <script src="https://unpkg.com/vue@3.0.5"></script> 
-
-</head>
-<body>
-
-  {% section 'header' %}
-
-  <main role="main">
-    {{ content_for_layout }}
-  </main>
+  
+  </head>
+  <body>
+    
+    {% section 'header' %}
+    
+    <main role="main">
+      {{ content_for_layout }}
+      </main>
+  {%- comment -%} Bootstrap is being used to breach some issue with css. https://getbootstrap.com/  {%- endcomment -%}
   {{ 'bootstrap.min.js' | asset_url | script_tag }}
   {{ 'application.js' | asset_url | script_tag }}
   {{ 'cart.js' | asset_url | script_tag }}

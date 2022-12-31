@@ -1,55 +1,27 @@
-<nav>
-  {%- comment -%}
-    Main menu
-  {%- endcomment -%}
-  <ul class="navbar-nav">
-    {% for link in linklists.main-menu.links %}
-      {% assign child_list_handle = link.title | handleize %}
-      {% if linklist[child_list_handle].links != blank %}
-        <li class="nav-item">
-          <a class="nav-link" href="{{ link.url }}">
-            {{ link.title }}
+<nav class="mobile-nav py-200">
+  <div>
+    <span id="hamburgerIcon" class="material-symbols-outlined" data-icon="true">
+      menu
+    </span>
+
+    <h1 class="px-2">Hypevintage</h1>
+
+    {%- comment -%}
+    Cart
+    {%- endcomment -%}
+  <nav>
+      <ul>
+        <li>
+          <a href="/cart">
+            <span class="material-symbols-outlined" data-icon="true">shopping_bag</span>
+            {%- comment -%}
+              Numbering how many items the cart has
+              <span id="numberOfCartItems" class="badge bg-danger rounded-pill">0</span>
+            {%- endcomment -%}
           </a>
         </li>
-        {% for childlink in linklist[child_list_handle].links %}
-          <li class="nav-item">
-            <a class="nav-link" href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
-          </li>
-        {% endfor %}
-      {% else %}
-        <li class="nav-item">
-          <a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
-        </li>
-      {% endif %}
-    {% endfor %}
-    <li class="nav-item">
-      <a href="/cart" class="nav-link">Cart <span id="numberOfCartItems" class="badge bg-danger rounded-pill">0</span></a>
-    </li>
-  </ul>
-  {%- comment -%}
-    Authentication
-  {%- endcomment -%}
-  <ul class="navbar-nav">
-    {% if shop.customer_accounts_enabled %}
-      {% if customer %}
-          <li class="nav-item">
-            <a href="{{ routes.account_url }}" class="nav-link">Account</a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ routes.account_logout_url }}" class="nav-link"> Logout</a>
-          </li>
-      {% else %}  
-          <li class="nav-item">
-            <a href="{{ routes.account_login_url }}" class="nav-link">Login</a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ routes.account_register_url }}" class="nav-link">Register</a>
-          </li>
-
-      {% endif %}
-    {% endif %}
-  </ul>
+      </ul>
+    </nav>
+  </div>
 </nav>
-<nav>
-  {% render 'subnavigation' %}
-</nav>
+{% render 'hamburger-menu' %}
