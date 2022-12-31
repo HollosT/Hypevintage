@@ -9,13 +9,13 @@
     /* Font sizes */
     --fs-50: .8vw;
     --fs-100: 1vw;
-    --fs-150: 1.1vw;
-    --fs-200: 1.5vw;
-    --fs-300: 2vw;
-    --fs-400: 4vw;
-    --fs-500: 5vw;
-    --fs-600: 6vw;
-    --fs-700: 9vw;
+    --fs-150: 2vw;
+    --fs-200: 3.5vw;
+    --fs-300: 6vw;
+    --fs-400: 7vw;
+    --fs-500: 9vw;
+    --fs-600: 11vw;
+    --fs-700: 15vw;
 
     /* Font weight */
     --fw-100: 100;
@@ -40,6 +40,8 @@
 
     /* Colors */
     --black: black;
+    --secondary: #484B54;
+    --main: #FBF7F5;
 }
 
 
@@ -48,6 +50,10 @@
     padding: 0;
     margin: 0;
     font-size: 18px;
+}
+
+body {
+    background: var(--main);
 }
 
 main {
@@ -63,6 +69,8 @@ nav {
 
 a {
     text-decoration: none;
+    color: var(--secondary);
+    font-size: var(--fs-200);
 }
 
 li {
@@ -76,18 +84,18 @@ span[data-icon="true"] {
 }
 
 h1 {
-    font-size: var(--fs-400);
+    font-size: var(--fs-300);
     font-weight: var(--fw-bolder);
 }
 
 h2 {
-    font-size: var(--fs-600);
-    font-weight: var(--fw-100);
+    font-size: var(--fs-400);
+    font-weight: var(--fw-600);
 }
 
 h3 {
-    font-size: var(--fs-600);
-    font-weight: var(--fw-bold);
+    font-size: var(--fs-300);
+    font-weight: var(--fw-500);
 }
 
 h4 {
@@ -100,8 +108,9 @@ h5 {
     font-weight: var(--fw-100);
 }
 p {
-    font-size: var(--fs-300);
+    font-size: var(--fs-200);
     font-weight: var(--fw-100);
+    color: var(--secondary);
 }
 
 @media (min-width: 600px) {
@@ -149,6 +158,9 @@ p {
 .py-800 {
     padding: var(--s-800) 0;
 }
+.py-1000 {
+    padding: var(--s-1000) 0;
+}
 
 /* Paddings X */
 .px-50 {
@@ -185,4 +197,58 @@ p {
 
 .px-800 {
     padding: var(--s-800) 0;
+}
+
+/* Paddings Bottom */
+.pb-100 {
+    padding-bottom: var(--s-100);
+}
+
+.pb-200 {
+    padding-bottom: var(--s-200);
+}
+
+.pb-300 {
+    padding-bottom: var(--s-300);
+}
+
+.pb-700 {
+    padding-bottom: var(--s-700);
+}
+
+/* Margin X */
+.mx-50 {
+    padding: var(--s-50) 0;
+}
+
+.mx-100 {
+    padding: 0 var(--s-100);
+}
+
+.mx-200 {
+    padding: 0 var(--s-200);
+}
+
+.mx-300 {
+    padding: 0 var(--s-300);
+}
+
+.mx-400 {
+    padding: 0 var(--s-400);
+}
+
+.mx-500 {
+    padding: 0 var(--s-500);
+}
+
+.mx-600 {
+    padding: 0 var(--s-600);
+}
+
+.mx-700 {
+    padding: 0 var(--s-700);
+}
+
+.mx-800 {
+    padding: 0 var(--s-800);
 }

@@ -1,24 +1,27 @@
-<section class="container">
-    <h2>{{ section.settings.title }}</h2>
-    <div class="row">
-        {% assign current_collection = collections[section.settings.featured_collection] %}
+<section class=" py-1000">
+    {% assign current_collection = collections[section.settings.featured_collection] %}
+    <div class="featured-collection-header">
+        <h3>{{ section.settings.title }}</h3>
+        <a href="{{ current_collection.url}}">View all</a>
+    </div>
+    <div class="featured-collection-container py-500">
         {% for product in current_collection.products limit: 3 %}
             {% assign image = product.featured_media.preview_image %}
-            <article class="col">
+            <article class="mx-200">
                 {% if image != blank %}
-                    <img src="{{ image | img_url: 'medium' }}" alt="{{ product.title }}">
+                    <img class="featured-collection-img" src="{{ image | img_url: 'medium' }}" alt="{{ product.title }}">
                     {% else %}
                     {{ 'product-1' | placeholder_svg_tag: 'card-img-top' }}
                 {% endif %}
                 <div>
+                    {% if product.tags != null %}
+                        <p>{{ product.tags[0]  }}</p>
+                    {% endif %}
                     <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
                     <p>{{product.price | money_without_trailing_zeros}}</p>
                 </div>       
             </article>
         {% endfor %}
-        <div class="col">
-            <a href="{{ current_collection.url}}"> See more</a>
-        </div>
     </div>
 </section>
 

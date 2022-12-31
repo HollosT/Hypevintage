@@ -56,7 +56,11 @@
  }
 
  .hero-img {
-    width: 100% !important;
-
+    width: 100vw !important;
     object-fit: fill;
+ }
+
+ .hero-content-container {
+    width: 90%;
+    margin: 0 auto;
  }

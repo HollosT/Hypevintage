@@ -1,0 +1,18 @@
+.featured-collection-header {
+    display: flex;
+    justify-content: space-between;
+    justify-items: baseline;
+}
+
+.featured-collection-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow: scroll;
+    padding: 8vw;
+}
+
+.featured-collection-img {
+    object-fit: fill;
+    aspect-ratio: 1;
+    width: 40vw;
+}
