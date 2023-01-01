@@ -1,0 +1,25 @@
+
+<section>
+    <h1>{{ section.settings.title }}</h1>
+</section>
+
+{% schema %}
+    {
+        "name": "Mobile Category",
+        "class": "mobile-category",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "default": "Category",
+                "label": "Title"
+            }
+        ],
+        "presets": [
+            {
+              "category": "Mobile Category",
+              "name": "Mobile Category"
+          }
+        ]
+    }
+{% endschema %}

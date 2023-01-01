@@ -11,8 +11,26 @@
     padding: 8vw;
 }
 
+.featured-collection-img-container {
+    position: relative;
+
+}
+.featured-collection-img-container > span {
+    position: absolute;
+    width: 3vw;
+}
+
 .featured-collection-img {
+    position: absolute;
     object-fit: fill;
     aspect-ratio: 1;
-    width: 40vw;
+    width: 100%;
+}
+
+.featured-collection-header a {
+    display: flex;
+    flex-direction: row;
+    justify-items: baseline;
+    text-align: center;
+    align-items: center;
 }

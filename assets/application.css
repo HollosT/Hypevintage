@@ -3,8 +3,12 @@
 
     /* Site width */
     --site-width: 90%;
+
     /* Icon size */
     --icon-size: 1;
+
+    /* Font family */
+    --font-family: "Roboto", Times, serif;
 
     /* Font sizes */
     --fs-50: .8vw;
@@ -50,6 +54,7 @@
     padding: 0;
     margin: 0;
     font-size: 18px;
+    font-family: var(--font-family);
 }
 
 body {
@@ -84,7 +89,7 @@ span[data-icon="true"] {
 }
 
 h1 {
-    font-size: var(--fs-300);
+    font-size: var(--fs-200);
     font-weight: var(--fw-bolder);
 }
 
