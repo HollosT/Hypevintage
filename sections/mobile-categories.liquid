@@ -1,19 +1,28 @@
 
-<section>
-    <h1>{{ section.settings.title }}</h1>
+<section id="mobileCategory">
+    <nav class="mobile-categories-container">
+        {% for link in linklists.products.links %}
+            {% assign index = forloop.index %}
+                <div>
+                    <span class="main-category" data-link="{{ index }}">{{  link.title }}</span>
+                    <ul class="sub-category hide" data-link="{{ index }}">
+                        {% for childlink in link.links %}
+                            <li>
+                                <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+        {% endfor %}
+    </nav>
 </section>
-
+            
+            
 {% schema %}
     {
         "name": "Mobile Category",
         "class": "mobile-category",
         "settings": [
-            {
-                "type": "text",
-                "id": "title",
-                "default": "Category",
-                "label": "Title"
-            }
         ],
         "presets": [
             {

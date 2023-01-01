@@ -11,20 +11,19 @@
     padding: 8vw;
 }
 
-.featured-collection-img-container {
+
+.featured-collection-article {
     position: relative;
-
 }
-.featured-collection-img-container > span {
+.featured-collection-article .icon {
     position: absolute;
-    width: 3vw;
+    right: 0;
 }
 
-.featured-collection-img {
-    position: absolute;
+.featured-collection-img-container .featured-collection-img {
     object-fit: fill;
     aspect-ratio: 1;
-    width: 100%;
+    width: 40vw;
 }
 
 .featured-collection-header a {

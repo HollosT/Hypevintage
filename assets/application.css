@@ -127,6 +127,10 @@ p {
 
 
 /* Utilities classes */
+/* Hide */
+.hide {
+    display: none !important;
+}
 /* Paddings Y */
 .py-50 {
     padding: var(--s-50) 0;

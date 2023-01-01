@@ -1,0 +1,31 @@
+.mobile-categories-container {
+    overflow: scroll;
+}
+.mobile-categories-container div {
+    margin-right: 5vw;
+    display: flex;
+    flex: row;
+    border: 1px solid var(--black);
+    border-radius: 100vw;
+    align-items: center;
+    padding: 0;
+}
+
+.sub-category {
+    display: flex;
+    flex: row;
+    padding: 2vw;
+    gap: 4vw;
+}
+
+.main-category {
+    border-radius: 100vw;
+    padding: 2vw 3vw;
+    
+}
+
+.active-main {
+    background: var(--black);
+    color: white;
+    border: 1px solid white;
+}
