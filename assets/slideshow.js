@@ -14,12 +14,13 @@ if(slideShow != null) {
 
     
     
-    tabContainer.querySelector('click', e => {
+    tabContainer.addEventListener('click', e => {
         console.log('hello');
         const clicked = e.target.closest('.tab');
 
-        if(!clicked);
-        console.log('clicked');
+        if(!clicked) return;
+       
+        goToSlide(+clicked.dataset.tab)
     })
     
     const init = () => {
