@@ -1,15 +1,23 @@
-<section data-width="max">
-    <div>
+<section id="slideShow"  data-width="max">
+    <div class="slideshow-container"  data-width="less">
         <h3>{{section.settings.title}}</h3>
-        <div>
+        <div class="slides-container">
             {% for block in section.blocks %}
             {% assign item = block.settings %}
-                <article>
+                <article class="slide">
                     <img class="slide-img" src="{{ item.image | img_url: 'master' }}" alt="{{ item.image.alt }}">
-                    <h5>{{item.sub_title}}</h5>
-                    <body>{{item.body}}</body>
-    
+                    <div class="slide-content-container px-500">
+                        <h5>{{item.sub_title}}</h5>
+                        <body>{{item.body}}</body>
+                    </div>
                 </article>
+            {% endfor %}
+        </div>
+        <div class="tab-title-container">
+            {% for block in section.blocks %}
+            {% assign item = block.settings %}
+            {% assign index = forloop.index %}
+                <span data-slide="{{index}}" class="tab">{{item.sub_title}}</span>
             {% endfor %}
         </div>
     </div>
