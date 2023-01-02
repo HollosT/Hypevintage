@@ -1,0 +1,42 @@
+.faq-section h3 {
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+
+.faq {
+    border-bottom: 1px solid black;
+}
+
+.faq-active {
+    transition: height 500ms ease-in-out;
+    height: 50vw;
+}
+.question {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.arrow {
+
+    transition: all 250ms ease-in-out;
+}
+
+.active-arrow {
+    transform: rotate(180deg);
+}
+
+.faq-p {
+    margin-top: 5vw;
+    font-weight: bolder;
+    color: var(--black);
+    font-size: 1.1rem;
+}
+
+.faq-cta {
+    color: white;
+    background: var(--black);
+    display: flex;
+    padding: 4vw;
+    justify-content: center;
+}

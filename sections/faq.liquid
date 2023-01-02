@@ -1,0 +1,72 @@
+<section id="faqSection" class="faq-section py-700" data-width="less">
+    <h3 class="py-500">Q&A</h3>
+    <div class="faq-container">
+        {% for block in section.blocks %}
+        {% assign item = block.settings %}
+            <article class="faq py-500" data-faq="{{block.id}}">
+                <div class="question py-200" >
+                    <h5>{{block.settings.title}}</h5>
+                    <span class="material-symbols-outlined arrow" data-faq="{{block.id}}" data-open="false">
+                        expand_more
+                    </span>
+                </div>
+                <div class="answer hide" data-faq="{{block.id}}">
+                    <p>{{ block.settings.answer }}</p>
+                </div>
+
+            </article>    
+        {% endfor %}
+        <p class="faq-p py-600">Have more questions? Contact us and we will get back to you as soon as possible.</p>
+        <a class="faq-cta py-300" href="#">Contact us</a>
+    </div>
+</section>
+
+{% schema %}
+    {
+        "name": "FAQ",
+        "tag": "section",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "FAQ Items"
+            }
+        ],
+        "blocks": [
+            {
+                "name": "FAQ Items",
+                "type": "faq",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title",
+                        "default": "FAQ Title Example"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "answer",
+                        "label": "Answer"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+        {
+          "name": "Faq",
+          "settings": {
+            "title": "Faq"
+          },
+          "blocks": [
+            {
+              "type": "faq"
+            },
+            {
+              "type": "faq"
+            }
+          ]
+        }
+      ]
+    }
+{% endschema %}
+

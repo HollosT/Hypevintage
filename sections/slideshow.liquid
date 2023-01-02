@@ -1,7 +1,7 @@
 <section id="slideShow"  data-width="max">
     <div class="slideshow-container"  data-width="less">
         <h3>{{section.settings.title}}</h3>
-        <div class="slides-container">
+        <div class="slides-container py-500">
             {% for block in section.blocks %}
             {% assign item = block.settings %}
                 <article class="slide">
@@ -13,7 +13,7 @@
                 </article>
             {% endfor %}
         </div>
-        <div class="tab-title-container">
+        <div class="tab-title-container py-400 mt-300">
             {% for block in section.blocks %}
             {% assign item = block.settings %}
             {% assign index = forloop.index %}

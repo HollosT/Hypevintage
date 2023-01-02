@@ -114,8 +114,8 @@ h4 {
 }
 
 h5 {
-    font-size: var(--fs-200);
-    font-weight: var(--fw-100);
+    font-size: var(--fs-300);
+    font-weight: var(--fw-400);
 }
 p {
     font-size: var(--fs-200);
@@ -136,6 +136,8 @@ p {
 .hide {
     display: none !important;
 }
+
+
 /* Paddings Y */
 .py-50 {
     padding: var(--s-50) 0;
