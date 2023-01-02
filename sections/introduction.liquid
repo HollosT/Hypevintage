@@ -1,0 +1,34 @@
+<section class="introduction-container py-400" data-width="max">
+    <div  class="py-400">
+        <h3 class="py-200">{{ section.settings.title }}</h3>
+            {{ section.settings.description }}       
+    </div>
+</section>
+
+{% schema %}
+    {
+        "name": "Introduction",
+        "class": "introduction-section",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "default": "Example Heading",
+                "label": "Introduction Title"
+            },
+            {
+                "type": "richtext",
+                "id": "description",
+                "default": "<p>Example Paragraph</p>",
+                "label": "Introduction Description"
+            }
+        ],
+  
+        "presets": [
+            {
+                "category": "Introduction",
+                "name": "Simple Introduction"
+            }
+        ]
+    }
+  {% endschema %}

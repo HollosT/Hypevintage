@@ -1,10 +1,16 @@
 
-<section id="mobileCategory">
-    <nav class="mobile-categories-container">
+<section id="mobileCategory" class="py-400" data-width="max">
+    <p>Explore categories</p>
+    <nav class="mobile-categories-container py-400">
         {% for link in linklists.products.links %}
             {% assign index = forloop.index %}
                 <div>
-                    <span class="main-category" data-link="{{ index }}">{{  link.title }}</span>
+                    <span class="main-category" data-link="{{ index }}">
+                        <span class="material-symbols-outlined category-icon icon hide" data-icon="{{ index }}">
+                            chevron_left
+                        </span>
+                        {{  link.title }}
+                    </span>
                     <ul class="sub-category hide" data-link="{{ index }}">
                         {% for childlink in link.links %}
                             <li>

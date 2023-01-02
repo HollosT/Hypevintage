@@ -1,5 +1,18 @@
+#mobileCategory {
+    border-top: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+#mobileCategory p {
+    color: black;
+    width: var(--site-width);
+    margin: 0 auto;
+}
+
 .mobile-categories-container {
     overflow: scroll;
+    width: var(--site-width);
+    margin: 0 auto;
 }
 .mobile-categories-container div {
     margin-right: 5vw;
@@ -21,7 +34,17 @@
 .main-category {
     border-radius: 100vw;
     padding: 2vw 3vw;
-    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: baseline;
+    gap: 2vw;
+}
+.main-category .category-icon {
+    color: var(--black);
+    background: white;
+    border-radius: 50%;
+    scale: 1.2;
 }
 
 .active-main {
@@ -29,3 +52,4 @@
     color: white;
     border: 1px solid white;
 }
+

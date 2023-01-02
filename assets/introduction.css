@@ -1,0 +1,12 @@
+.introduction-container {
+    background-color: var(--black);
+    margin-top: 10vw;
+}
+.introduction-container > div {
+    width: var(--site-width);
+    margin: 0 auto;
+}
+
+.introduction-container  div > *{
+   color: white;
+}

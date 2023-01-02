@@ -1,0 +1,76 @@
+<section data-width="max">
+    <div>
+        <h3>{{section.settings.title}}</h3>
+        <div>
+            {% for block in section.blocks %}
+            {% assign item = block.settings %}
+                <article>
+                    <img class="slide-img" src="{{ item.image | img_url: 'master' }}" alt="{{ item.image.alt }}">
+                    <h5>{{item.sub_title}}</h5>
+                    <body>{{item.body}}</body>
+    
+                </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+{% comment %}
+    Based on the Shopify dev guide: https://shopify.dev/themes/architecture/sections/section-schema
+{% endcomment %}
+{% schema %}
+    {
+      "name": "Slideshow",
+      "tag": "section",
+      "class": "slideshow",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Slideshow"
+        }
+      ],
+      "max_blocks": 3,
+      "blocks": [
+         {
+           "name": "Slide",
+           "type": "slide",
+           "settings": [
+             {
+               "type": "image_picker",
+               "id": "image",
+               "label": "Image"
+             },
+             {
+               "type": "text",
+               "id": "sub_title",
+               "label": "Sub-title"
+             },
+             {
+               "type": "richtext",
+               "id": "body",
+               "label": "body"
+             }
+           ]
+         }
+      ],
+      "presets": [
+        {
+          "name": "Slideshow",
+          "settings": {
+            "title": "Slideshow"
+          },
+          "blocks": [
+            {
+              "type": "slide"
+            },
+            {
+              "type": "slide"
+            }
+          ]
+        }
+      ]
+    }
+    {% endschema %}

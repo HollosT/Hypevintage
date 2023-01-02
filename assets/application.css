@@ -61,7 +61,12 @@ body {
     background: var(--main);
 }
 
-main {
+
+section[data-width="max"] {
+    /* margin: 0 auto; */
+    width: 100vw;
+}
+section[data-width="less"] {
     margin: 0 auto;
     width: var(--site-width);
 }
@@ -260,4 +265,37 @@ p {
 
 .mx-800 {
     padding: 0 var(--s-800);
+}
+
+/* Margin Bottom */
+.mb-100 {
+    margin-bottom: var(--s-100);
+}
+
+.mb-200 {
+    margin-bottom: var(--s-200);
+}
+
+.mb-300 {
+    margin-bottom: var(--s-300);
+}
+
+.mb-700 {
+    margin-bottom: var(--s-700);
+}
+/* Margin Top */
+.mt-100 {
+    margin-top: var(--s-100);
+}
+
+.mt-200 {
+    margin-top: var(--s-200);
+}
+
+.mt-300 {
+    margin-top: var(--s-300);
+}
+
+.mt-700 {
+    margin-top: var(--s-700);
 }
