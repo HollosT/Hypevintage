@@ -1,4 +1,4 @@
-<nav class="mobile-nav">
+<nav class="mobile-nav" id="header">
   <div>
     <div class="mobile-nav_icon--container">
       <span id="hamburgerIcon" class="material-symbols-outlined py-200" data-icon="true">
@@ -13,19 +13,17 @@
   <nav>
       <ul>
         <li class="mobile-nav_icon--container" data-cart="true">
-          <a href="/cart">
-            <span class="material-symbols-outlined py-200" data-icon="true">shopping_bag</span>
-            {%- comment -%}
-              Numbering how many items the cart has
-              <span id="numberOfCartItems" class="badge bg-danger rounded-pill">0</span>
-            {%- endcomment -%}
-          </a>
+            <span id="cartIcon" class="material-symbols-outlined py-200" data-icon="true">shopping_bag</span>
+            <span id="numberOfCartItems">0</span>
         </li>
       </ul>
     </nav>
   </div>
 </nav>
 {% render 'hamburger-menu' %}
+{% render 'cart' %}
+
+
 <section class="py-500">
     {% if section.settings.image != blank %}
         <img class="hero-img" src="{{ section.settings.image | img_url: 'master' }}" alt="{{ section.settings.image.alt }}">
@@ -38,8 +36,9 @@
         <h2 class="py-400">{{ section.settings.title }}</h2>
         {{ section.settings.description }}       
     </section>
-
 </section>
+
+
 
 {% schema %}
   {
@@ -73,3 +72,4 @@
       ]
   }
 {% endschema %}
+

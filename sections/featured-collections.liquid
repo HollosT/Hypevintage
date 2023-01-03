@@ -13,14 +13,16 @@
         {% for product in current_collection.products limit: 3 %}
             {% assign image = product.featured_media.preview_image %}
             <article class="featured-collection-article mx-200">
-                {% if image != blank %}
-                    <span class="material-symbols-outlined py-200 icon" data-icon="true">
-                        shopping_bag
-                    </span>
-                    <img class="featured-collection-img" src="{{ image | img_url: 'medium' }}" alt="{{ product.title }}">
+                <div class="product-container">
+                    {% if image != blank %}
+                        <img class="featured-collection-img" src="{{ image | img_url: 'medium' }}" alt="{{ product.title }}">
+                        <span id="productInfoAnchor" class="material-symbols-outlined py-200 icon" data-icon="true" product-handle="{{ product.handle }}">
+                            shopping_bag
+                        </span>
                     {% else %}
-                    {{ 'product-1' | placeholder_svg_tag: 'card-img-top' }}
-                {% endif %}
+                        {{ 'product-1' | placeholder_svg_tag: 'card-img-top' }}
+                    {% endif %}
+                </div>
                 <div>
                     {% if product.tags != null %}
                         <p>{{ product.tags[0] }}</p>
@@ -32,6 +34,7 @@
         {% endfor %}
     </div>
 </section>
+
 
 {% schema %}
     {
