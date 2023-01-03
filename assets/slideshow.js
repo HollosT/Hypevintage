@@ -11,7 +11,8 @@ if(slideShow != null) {
         tabs[curIndex].classList.add('active-slide')
        
         slides.forEach((slide ,i ) => {
-            slide.style.transform = `translateX(${100 * (i - curIndex)}%)`
+            slide.style.transform = `translateX(${100 * (i - curIndex)}%)`;
+
         })
     }
 
@@ -23,6 +24,7 @@ if(slideShow != null) {
 
 
         const curIndex = +clicked.dataset.tab - 1;
+        
         goToSlide(curIndex)
     })
     

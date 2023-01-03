@@ -1,5 +1,4 @@
 .cart-container {
-    position: absolute;
     display: block;
     transform: translateX(100vw);
     width: 100%;
@@ -7,6 +6,7 @@
     position: fixed;
     z-index: 150;
     background-color: var(--main);
+    position: fixed;
 }
 
 .cart {
@@ -115,11 +115,12 @@
 
 #numberOfCartItems {
     position: absolute;
-    top: 5%;
-    right: -20%;
+    top: 7%;
+    right: -25%;
     background-color: black;
     border-radius: 50%;
     color: white;
     text-align: center;
     padding: 0vw 1vw;
+    border: 1px solid white;
 }

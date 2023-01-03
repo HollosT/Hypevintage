@@ -6,6 +6,9 @@
 .faq {
     border-bottom: 1px solid black;
 }
+.faq h5 {
+    font-size: 1rem;
+}
 
 .faq-active {
     transition: height 500ms ease-in-out;

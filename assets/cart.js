@@ -8,7 +8,8 @@ if(header != null ) {
     const closeCartBtn = document.querySelector('#closeCartBtn');
     const numberOfCartItems = document.querySelector('#numberOfCartItems')
     const cartIcon = document.querySelector('#cartIcon');
-
+    const cartTitle = document.querySelector('#cartTitle')
+    const proceedChoppingCart = document.querySelector('#proceedChoppingCart')
     const interactCart = [numberOfCartItems, cartIcon]
     //Open cart
     const cart = document.querySelector('#cart');
@@ -100,16 +101,18 @@ if(header != null ) {
                 fetch('/cart.js')
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
                     console.log(data.items.length > 0);
                     // Update shopping icon
                     let hasItem = false;
-                    
+
                     if(data.items.length > 0) {
                         hasItem = true
+                        proceedChoppingCart.classList.remove('opacity')
                         numberOfCartItems.classList.remove('opacity');
                     } else {
                         hasItem = false
+                        proceedChoppingCart.classList.add('opacity')
+
                         numberOfCartItems.classList.add('opacity');
                     }
                     
@@ -122,15 +125,29 @@ if(header != null ) {
 
                     }
                     
-                    // draw shopping cart
-                    drawProducts(data.items)
+                    if(hasItem) {
+                        // draw shopping cart
+                        drawProducts(data.items)
+                        
+                        // draw prices
+                        drawPrices(data)
 
-                    // draw prices
-                    drawPrices(data)
+                        drawCartTitle(hasItem)
+                    } else if (hasItem === false) {
+                        drawCartTitle(hasItem)
+                    }
                 })
                 .catch(err => {
                     console.log(err);
                 })
+            }
+
+            const drawCartTitle = (status) => {
+                if(status) {
+                    cartTitle.innerHTML = 'Your shopping bag'
+                } else if (status === false) {
+                    cartTitle.innerHTML = 'Your shopping bag is empty'
+                }
             }
 
             const drawPrices = (data) => {
@@ -210,7 +227,7 @@ if(header != null ) {
             }
 
             const removeItem = (variant) => {
-                console.log(variant);
+                
                 const formData = {
                     'items': [
                         {
@@ -226,10 +243,12 @@ if(header != null ) {
                     },
                     body: JSON.stringify(formData)
                 })
-                .then(res => res.json())
+                .then(res => {
+                    console.log(res.json());
+                    return res.json();
+                })
                 .then((data) => {
                     updateCart();
-                    
                     
                 })
                 .catch((err) => {

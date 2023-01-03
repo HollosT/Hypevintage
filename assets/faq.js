@@ -43,10 +43,13 @@ if(faqSection != null) {
 
         arrows.forEach(arrow => {
             if(arrow.dataset.faq === id) {
+                // arrow.innerHTML = 'expand_less'
                 arrow.classList.add('active-arrow');
                 arrow.dataset.open = 'true'
             } else {
                 arrow.dataset.open = 'false'
+                // arrow.innerHTML = 'expand_more'
+
                 arrow.classList.remove('active-arrow')
 
             }
@@ -56,6 +59,7 @@ if(faqSection != null) {
 
     const close = (clicked) => {
         arrows.forEach(arrow => arrow.classList.remove('active-arrow'));
+        arrows.forEach(arrow => arrow.innerHTML = 'expand_less');
         faqs.forEach(faq => faq.classList.remove('faq-active'));
         clicked.dataset.open = 'false'
         answers.forEach(answer => answer.classList.add('hide'))

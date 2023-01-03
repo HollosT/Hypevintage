@@ -14,7 +14,7 @@
     width: var(--site-width);
     margin: 0 auto;
 }
-.mobile-categories-container div {
+.category {
     margin-right: 5vw;
     display: flex;
     flex: row;
@@ -22,6 +22,17 @@
     border-radius: 100vw;
     align-items: center;
     padding: 0;
+    width: 30vw;
+    height: 8.5vw;
+}
+
+.active-category {
+    transition: all 350ms ease-in-out;
+    width: 100vw;
+}
+.reset-category {
+    transition: all 350ms ease-in-out;
+    width: 30vw;
 }
 
 .sub-category {

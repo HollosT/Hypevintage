@@ -4,7 +4,7 @@
     <nav class="mobile-categories-container py-400">
         {% for link in linklists.products.links %}
             {% assign index = forloop.index %}
-                <div>
+                <div class="category" data-link="{{ index }}">
                     <span class="main-category" data-link="{{ index }}">
                         <span class="material-symbols-outlined category-icon icon hide" data-icon="{{ index }}">
                             chevron_left
