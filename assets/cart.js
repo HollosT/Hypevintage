@@ -6,17 +6,15 @@ if(header != null ) {
     const cartItemContainer = document.querySelector('#cartItemContainer ');
     const priceContainer = document.querySelector('#priceContainer');
     const closeCartBtn = document.querySelector('#closeCartBtn');
-
-
-    //Open cart
+    const numberOfCartItems = document.querySelector('#numberOfCartItems')
     const cartIcon = document.querySelector('#cartIcon');
+
+    const interactCart = [numberOfCartItems, cartIcon]
+    //Open cart
     const cart = document.querySelector('#cart');
     //  const mobileNavBarHeight =mobileNavBar.getBoundingClientRect().height;
-
-
-     cartIcon.addEventListener('click', (e) => {
-
-         if(cart.classList.contains('open-cart')) {
+    interactCart.forEach(int => int.addEventListener('click', (e) => {
+        if(cart.classList.contains('open-cart')) {
             // hamburgerMenu.style.marginTop = `0px`
             cart.classList.add('close-cart')
 
@@ -29,7 +27,9 @@ if(header != null ) {
             cart.classList.add('open-cart')
             //  document.body.classList.add('stop-scroll')            
          }
-     })
+    }))
+
+
 
 
      closeCartBtn.addEventListener('click', () => {
@@ -52,21 +52,7 @@ if(header != null ) {
                  .then(data => {
 
                      addtoCart(data)
-                     // document.getElementById("productInfoImg").src = data.images[0];
-                     // document.getElementById("productInfoTitle").innerHTML = data.title;
-                     // document.getElementById("productInfoPrice").innerHTML = item.getAttribute('product-price');
-                     // document.getElementById("productInfoDescription").innerHTML = data.description;
-                     
-                     // const variants = data.variants;
-                     // const variantSelect = document.getElementById('modalItemID')
-                     
-                     // variantSelect.innerHTML = '';
-                     
-                     // variants.forEach(function(variant, index) {
-                         //     variantSelect.options[variantSelect.options.length] = new Option(variant.option1, variant.id)
-                         // })
-                         
-                         
+ 
                         });
                     })
                 })
@@ -115,13 +101,26 @@ if(header != null ) {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
+                    console.log(data.items.length > 0);
                     // Update shopping icon
-                    const items = data.items.map(item => item.quantity)
-                    const sum = items.reduce((acc, value) => {
-                        return acc + value;
-                    }, 0)
+                    let hasItem = false;
                     
-                    document.querySelector('#numberOfCartItems').innerHTML = sum;
+                    if(data.items.length > 0) {
+                        hasItem = true
+                        numberOfCartItems.classList.remove('opacity');
+                    } else {
+                        hasItem = false
+                        numberOfCartItems.classList.add('opacity');
+                    }
+                    
+                    if(hasItem) {
+                        const items = data.items.map(item => item.quantity)
+                        const sum = items.reduce((acc, value) => {
+                            return acc + value;
+                        }, 0)
+                        document.querySelector('#numberOfCartItems').innerHTML = sum;
+
+                    }
                     
                     // draw shopping cart
                     drawProducts(data.items)
@@ -137,7 +136,7 @@ if(header != null ) {
             const drawPrices = (data) => {
                 const length = String(data.total_price).length;
                 const price = Number(String(data.total_price).substring(0, length - 2))
-
+                priceContainer.innerHTML = '';
                 const markup = `
                 <div class="subtotal-container">
                     <div>

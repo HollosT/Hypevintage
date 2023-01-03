@@ -5,7 +5,7 @@
     --site-width: 90%;
 
     /* Icon size */
-    --icon-size: 1;
+    --icon-size: 1.5;
 
     /* Font family */
     --font-family: "Roboto", Times, serif;
@@ -148,6 +148,11 @@ p {
 /* Hide */
 .hide {
     display: none !important;
+}
+/* Utilities classes */
+/* Hide */
+.opacity {
+    opacity: 0 !important;
 }
 
 

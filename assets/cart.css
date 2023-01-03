@@ -108,3 +108,18 @@
     flex-direction: column;
     gap: 3vw;
 }
+
+.mobile-nav_icon--container {
+    position: relative;
+}
+
+#numberOfCartItems {
+    position: absolute;
+    top: 5%;
+    right: -20%;
+    background-color: black;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    padding: 0vw 1vw;
+}
