@@ -37,10 +37,10 @@ if(mobileCategory != null) {
    
     
     const reset = (activeCategory) => {
-        // subCategories.forEach(sub => sub.classList.add('hide'));
-        // categories.forEach(cat => cat.classList.remove('active-category'));
-        // backIcons.forEach(icon => icon.classList.add('hide'));
+        subCategories.forEach(sub => sub.classList.add('hide'));
+        categories.forEach(cat => cat.classList.remove('active-category'));
+        backIcons.forEach(icon => icon.classList.add('hide'));
         activeCategory.classList.add('reset-category')
-        // mainCategories.forEach(main => main.classList.remove('active-main'));
+        mainCategories.forEach(main => main.classList.remove('active-main'));
     }
 }

@@ -5,12 +5,16 @@
         {% for link in linklists.products.links %}
             {% assign index = forloop.index %}
                 <div class="category" data-link="{{ index }}">
-                    <span class="main-category" data-link="{{ index }}">
-                        <span class="material-symbols-outlined category-icon icon hide" data-icon="{{ index }}">
-                            chevron_left
+                    {% if link.links.size > 1 %}
+                        <span class="main-category" data-link="{{ index }}">
+                            <span class="material-symbols-outlined category-icon icon hide" data-icon="{{ index }}">
+                                chevron_left
+                            </span>
+                            {{  link.title }} 
                         </span>
-                        {{  link.title }}
-                    </span>
+                    {% else %}
+                        <div class="hide"></div>
+                    {% endif %}
                     <ul class="sub-category hide" data-link="{{ index }}">
                         {% for childlink in link.links %}
                             <li>

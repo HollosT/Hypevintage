@@ -1,15 +1,28 @@
-<ul class="navbar-nav">
+<ul>
+      <h4 class="category-title py-300">All categories</h4>
     {% for link in linklists.products.links %}
-        <ul class="d-flex flex-column">
-            <h5>{{ link.title  }}</h5>
-            <ul class="d-flex flex-column navbar-nav">
+      {% assign index = forloop.index %}
+      
+        <ul class="subnav-ul py-300">
+            <div class="subnav-container">
+              {% if link.links.size > 1 %}
+              <h5 class="nav-title" data-sub="{{ index }}">{{ link.title  }}</h5>
+              <span class="material-symbols-outlined menu-arrow arrow" data-open="false" data-sub="{{ index }}">
+                        expand_more
+                </span>
+                {% else %}
+                  <h5  data-sub="{{ index }}">
+                      <a class="nav-title" href="{{link.url}}"> {{ link.title  }}</a>
+                  </h5>
+              {% endif %}
+            </div>
+            <ul class="sub-sub-nav hide" data-sub="{{ index }}">
               {% for childlink in link.links %}
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+                <li class="py-300">
+                  <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
                 </li>
                {% endfor %}
           </ul>
-
       </ul>
     {% endfor %}
 </ul>

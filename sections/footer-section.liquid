@@ -1,26 +1,78 @@
+<div class="footer-title-container py-300" data-width="max">
+  <div class="footer-title">
+    {% render 'hypevintage-logo' %}
+    <span class="material-symbols-outlined footer-main-arrow arrow" data-open="false">
+      expand_less
+    </span>
+  </div>
+</div>
 <footer>
-    {% for block in section.blocks %}
-        {% assign item = block.settings %}
-        {% if block.type == "link_list" %}
-            <div >
-                <h5>{{ item.title }}</h5>
-                {% assign footer_linklist = item.menu %}
-                <ul class="list-unstyled text-small">
-                    {% for link in linklists[footer_linklist].links %}
-                        <li>
-                            <a href="{{ link.url }}">{{ link.title | escape }}</a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-        {% else if block.type == "text" %}
-            <div class="col">
-
-                <h5>{{ item.title }}</h5>
-                <p>{{ item.description }}</p>
-            </div>
-        {% endif %}
-    {% endfor %}
+  <section class="quick-nav-container py-300" data-width="max">
+    <div class="quick-nav">
+      <div class="footer-title">
+        <h5>Quick navigation</h5>
+        <span class="material-symbols-outlined arrow" data-open="false">
+              expand_less
+        </span>
+      </div>
+      {% for block in section.blocks %}
+          {% assign item = block.settings %}
+          {% if block.type == "link_list" %}
+              <div >
+                  {% assign footer_linklist = item.menu %}
+                  <ul class="list-unstyled text-small">
+                      {% for link in linklists[footer_linklist].links %}
+                          <li class="py-200">
+                              <a class="footer-link" href="{{ link.url }}">{{ link.title | escape }}</a>
+                          </li>
+                      {% endfor %}
+                  </ul>
+              </div>
+          
+          {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+  <section class="footer-social-section py-300" data-width="max">
+    <div class="footer-social">
+        <div class="footer-title">
+        <h5>Follow us on social media</h5>
+        <span class="material-symbols-outlined arrow" data-open="false" data-sub="{{ index }}">
+              expand_less
+        </span>
+        </div>
+        <div class="social-container py-200">
+          <a href="https://www.facebook.com/Hypevintage.dk/" target="_blank">
+            {% render 'facebook' %}
+          </a>
+          <a href="https://www.instagram.com/hypevintage.dk/?hl=dk" target="_blank">
+            {% render 'instagram' %}
+          </a>
+        </div>
+    </div>
+  </section>
+  <section class="footer-address-section py-300" data-width="max">
+      <div class="footer-address">
+        <div class="footer-title">
+          <h5>Address information</h5>
+          <span class="material-symbols-outlined arrow" data-open="false" data-sub="{{ index }}">
+                expand_more
+          </span>
+        </div>
+        <div class="py-200">
+          <p>Hypevintage, Visionsvej 3, 1. 7, 9000 Aalborg, Denmark</p>
+        </div>
+      </div>
+  </section>
+  <section class="footer-final-section py-300" data-width="max">
+      <div class="footer-final">
+          <h4 class="py-300">
+            All rights reserved
+            {% render 'copyright' %}
+            to Hypevintage 2022
+          </h4>
+      </div>
+  </section>
 </footer>
 
 {% schema %}

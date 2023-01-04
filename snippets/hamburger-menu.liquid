@@ -1,52 +1,58 @@
+
 <nav id="hamburgerMenu" class="hamburger-menu">
+  <div class="menu-title-container py-300">
+    {% render 'hypevintage-logo' %}
+    <span id="navCloseX">&times;</span>
+  </div>
   {%- comment -%}
     Main menu
   {%- endcomment -%}
-  <ul>
-    {% for link in linklists.main-menu.links %}
-      {% assign child_list_handle = link.title | handleize %}
-      {% if linklist[child_list_handle].links != blank %}
-        <li>
-          <a href="{{ link.url }}">
-            {{ link.title }}
-          </a>
-        </li>
-        {% for childlink in linklist[child_list_handle].links %}
-          <li>
-            <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+    <ul class="main-nav py-300">
+      {% for link in linklists.main-menu.links %}
+        {% assign child_list_handle = link.title | handleize %}
+        {% if linklist[child_list_handle].links != blank %}
+          <li class="py-300">
+            <a href="{{ link.url }}">
+              {{ link.title }}
+            </a>
           </li>
-        {% endfor %}
-      {% else %}
-        <li>
-          <a href="{{ link.url }}">{{ link.title }}</a>
-        </li>
-      {% endif %}
-    {% endfor %}
-  </ul>
-  {%- comment -%}
+          {% for childlink in linklist[child_list_handle].links %}
+            <li class="py-300">
+              <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+            </li>
+          {% endfor %}
+        {% else %}
+          <li class="py-300">
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+{%- comment -%}
     Authentication
-  {%- endcomment -%}
-  <ul>
-    {% if shop.customer_accounts_enabled %}
+    <ul>
+      {% if shop.customer_accounts_enabled %}
       {% if customer %}
-          <li>
-            <a href="{{ routes.account_url }}">Account</a>
+      <li>
+        <a href="{{ routes.account_url }}">Account</a>
+        </li>
+        <li>
+          <a href="{{ routes.account_logout_url }}"> Logout</a>
           </li>
-          <li>
-            <a href="{{ routes.account_logout_url }}"> Logout</a>
-          </li>
-      {% else %}  
+          {% else %}  
           <li>
             <a href="{{ routes.account_login_url }}">Login</a>
-          </li>
-          <li>
-            <a href="{{ routes.account_register_url }}">Register</a>
-          </li>
-
-      {% endif %}
-    {% endif %}
-  </ul>
-  <nav>
+            </li>
+            <li>
+              <a href="{{ routes.account_register_url }}">Register</a>
+              </li>
+              
+            {% endif %}
+          {% endif %}
+          </ul>
+{%- endcomment -%}
+  <nav  class="sub-nav">
     {% render 'subnavigation' %}
   </nav>
 </nav>

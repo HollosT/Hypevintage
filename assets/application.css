@@ -144,7 +144,7 @@ p {
     background: var(--black);
 }
 
-/* Utilities classes */
+
 /* Hide */
 .hide {
     display: none !important;
