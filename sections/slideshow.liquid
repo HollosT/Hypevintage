@@ -1,87 +1,174 @@
+
 <section id="slideShow"  data-width="max">
-    <div class="slideshow-container"  data-width="less">
-        <h3>Did you know? #<spna>{{section.settings.title}}</spna></h3>
-        <div class="slides-container py-500">
-            {% for block in section.blocks %}
+  <div class="slideshow-container"  data-width="less">
+      <h3>Did you know? #</h3>
+      <div class="slides-container py-500">
+        <div class="first-container">
+        {% for block in section.blocks %}
+            {% if block.name == "Sustainability" %}
             {% assign item = block.settings %}
-                <article class="slide">
-                    <img class="slide-img" src="../assets/images/" alt="{{ item.image.alt }}">
-                    <div class="slide-content-container px-500">
-                        <h5>{{item.sub_title}}</h5>
-                        <body>{{item.body}}</body>
-                    </div>
+                <article class="slide" data-slide="{{block.name}}">
+                      <img class="slide-img" src="{{item.image}}" alt="{{ item.title }}">
+                      <div class="slide-content-container px-500">
+                          <h5>{{item.title}}</h5>
+                          <body>{{item.sub_title}}</body>
+                      </div>
                 </article>
-            {% endfor %}
-        </div>
-        <div class="tab-title-container py-400 mt-300">
-            {% for block in section.blocks %}
+            {% endif %}
+          {% endfor %}
+          </div>
+          <div class="second-container">
+          {% for block in section.blocks %}
+            {% if block.name == "Second" %}
             {% assign item = block.settings %}
-            {% assign index = forloop.index %}
-                <span data-tab="{{index}}" class="tab">{{item.title}}</span>
+                <article class="slide" data-slide="{{block.name}}">
+                      <img class="slide-img" src="{{item.image}}" alt="{{ item.title }}">
+                      <div class="slide-content-container px-500">
+                          <h5>{{item.title}}</h5>
+                          <body>{{item.sub_title}}</body>
+                      </div>
+                </article>
+              {% endif %}
             {% endfor %}
-        </div>
-    </div>
+            </div>
+          <div class="third-container">
+          {% for block in section.blocks %}
+            {% if block.name == "Cleaning process" %}
+            {% assign item = block.settings %}
+                <article class="slide" data-slide="{{block.name}}">
+                      <img class="slide-img" src="{{item.image}}" alt="{{ item.title }}">
+                      <div class="slide-content-container px-500">
+                          <h5>{{item.title}}</h5>
+                          <body>{{item.sub_title}}</body>
+                      </div>
+                </article>
+            {% endif %}
+          {% endfor %}
+          </div>
+      <div class="tab-title-container py-400 mt-300">
+          {% for block in section.blocks %}
+              <span data-slide="{{block.name}}" class="tab">{{block.name}}</span>
+          {% endfor %}
+      </div>
+  </div>
 </section>
 
 
 {% comment %}
-    Based on the Shopify dev guide: https://shopify.dev/themes/architecture/sections/section-schema
+    Inspired by: https://github.com/Maxosys/Shopify-Theme/blob/master/sections/slideshow.liquid
 {% endcomment %}
+
 {% schema %}
-    {
-      "name": "Old Slideshow",
-      "tag": "section",
-      "class": "slideshow",
-      "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Slideshow"
-        }
-      ],
-      "blocks": [
-         {
-           "name": "Slide",
-           "type": "slide",
-           "settings": [
-             {
-               "type": "text",
-               "id": "title",
-               "label": "Main title"
-             },
-             {
-               "type": "image_picker",
-               "id": "image",
-               "label": "Image"
-             },
-             {
-               "type": "text",
-               "id": "sub_title",
-               "label": "Sub-title"
-             },
-             {
-               "type": "richtext",
-               "id": "body",
-               "label": "body"
-             }
-           ]
-         }
-      ],
-      "presets": [
-        {
-          "name": "Slideshow",
-          "settings": {
-            "title": "Slideshow"
+  {
+    "name": "Slideshow",
+    "tag": "section",
+    "class": "slideshow",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Slideshow"
+      }
+    ],
+    "blocks": [
+       {
+         "name": "Sustainability",
+         "type": "text",
+         "settings": [
+           {
+             "type": "text",
+             "id": "title",
+             "label": "Main title"
+           },
+           {
+             "type": "image_picker",
+             "id": "image",
+             "label": "Image"
+           },
+           {
+             "type": "text",
+             "id": "sub_title",
+             "label": "Sub-title"
+           },
+           {
+             "type": "richtext",
+             "id": "body",
+             "label": "body"
+           }
+         ]
+       },
+       {
+         "name": "Benefit",
+         "type": "image",
+         "settings": [
+           {
+             "type": "text",
+             "id": "title",
+             "label": "Main title"
+           },
+           {
+             "type": "image_picker",
+             "id": "image",
+             "label": "Image"
+           },
+           {
+             "type": "text",
+             "id": "sub_title",
+             "label": "Sub-title"
+           },
+           {
+             "type": "richtext",
+             "id": "body",
+             "label": "body"
+           }
+         ]
+       },
+       {
+         "name": "Cleaning process",
+         "type": "slide",
+         "settings": [
+           {
+             "type": "text",
+             "id": "title",
+             "label": "Main title"
+           },
+           {
+             "type": "image_picker",
+             "id": "image",
+             "label": "Image"
+           },
+           {
+             "type": "text",
+             "id": "sub_title",
+             "label": "Sub-title"
+           },
+           {
+             "type": "richtext",
+             "id": "body",
+             "label": "body"
+           }
+         ]
+       }
+    ],
+    "presets": [
+      {
+        "name": "Slideshow",
+        "settings": {
+          "title": "Slideshow"
+        },
+        "blocks": [
+          {
+            "type": "text"
           },
-          "blocks": [
-            {
-              "type": "slide"
-            },
-            {
-              "type": "slide"
-            }
-          ]
-        }
-      ]
-    }
-    {% endschema %}
+          {
+            "type": "image"
+          },
+          {
+            "type": "slide"
+          }
+        ]
+      }
+    ]
+  }
+  {% endschema %}
+
