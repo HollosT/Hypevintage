@@ -10,18 +10,27 @@ if(header != null ) {
     const cartIcon = document.querySelector('#cartIcon');
     const cartTitle = document.querySelector('#cartTitle')
     const proceedChoppingCart = document.querySelector('#proceedChoppingCart')
+
+    const mobileNavBar = document.querySelector('#header')
+    const mobileNavBarHeight = mobileNavBar.getBoundingClientRect().height;
+    console.log(mobileNavBarHeight);
+
     const interactCart = [numberOfCartItems, cartIcon]
     //Open cart
     const cart = document.querySelector('#cart');
+    cart.style.marginTop = `${mobileNavBarHeight}px`
+
     //  const mobileNavBarHeight =mobileNavBar.getBoundingClientRect().height;
     interactCart.forEach(int => int.addEventListener('click', (e) => {
         if(cart.classList.contains('open-cart')) {
+
             // hamburgerMenu.style.marginTop = `0px`
             cart.classList.add('close-cart')
-
+            
             cart.classList.remove('open-cart')
             //  document.body.classList.remove('stop-scroll')
-         } else {
+        } else {
+
             // hamburgerMenu.style.marginTop = `${mobileNavBarHeight}px`
             cart.classList.remove('close-cart')
 

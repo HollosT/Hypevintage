@@ -1,24 +1,24 @@
 <div class="footer-title-container py-300" data-width="max">
   <div class="footer-title">
     {% render 'hypevintage-logo' %}
-    <span class="material-symbols-outlined footer-main-arrow arrow" data-open="false">
+    <span class="material-symbols-outlined footer-main-arrow footer-arrow arrow" data-open="true" data-footer="1">
       expand_less
     </span>
   </div>
 </div>
-<footer>
+<footer class="footer-collapse"  data-footer="1">
   <section class="quick-nav-container py-300" data-width="max">
     <div class="quick-nav">
       <div class="footer-title">
         <h5>Quick navigation</h5>
-        <span class="material-symbols-outlined arrow" data-open="false">
+        <span class="material-symbols-outlined footer-arrow arrow" data-open="true" data-footer="2">
               expand_less
         </span>
       </div>
+      <div class="footer-collapse" data-footer="2">
       {% for block in section.blocks %}
           {% assign item = block.settings %}
           {% if block.type == "link_list" %}
-              <div >
                   {% assign footer_linklist = item.menu %}
                   <ul class="list-unstyled text-small">
                       {% for link in linklists[footer_linklist].links %}
@@ -27,21 +27,21 @@
                           </li>
                       {% endfor %}
                   </ul>
-              </div>
-          
+                  
           {% endif %}
-      {% endfor %}
+        {% endfor %}
+        </div>
     </div>
   </section>
   <section class="footer-social-section py-300" data-width="max">
     <div class="footer-social">
         <div class="footer-title">
         <h5>Follow us on social media</h5>
-        <span class="material-symbols-outlined arrow" data-open="false" data-sub="{{ index }}">
-              expand_less
+        <span class="material-symbols-outlined footer-arrow arrow" data-open="true" data-footer="3">
+              expand_more
         </span>
         </div>
-        <div class="social-container py-200">
+        <div class="footer-collapse social-container py-200" data-footer="3">
           <a href="https://www.facebook.com/Hypevintage.dk/" target="_blank">
             {% render 'facebook' %}
           </a>
@@ -55,11 +55,11 @@
       <div class="footer-address">
         <div class="footer-title">
           <h5>Address information</h5>
-          <span class="material-symbols-outlined arrow" data-open="false" data-sub="{{ index }}">
+          <span class="material-symbols-outlined footer-arrow arrow" data-open="false" data-footer="4">
                 expand_more
           </span>
         </div>
-        <div class="py-200">
+        <div class="footer-collapse py-200 hide" data-footer="4">
           <p>Hypevintage, Visionsvej 3, 1. 7, 9000 Aalborg, Denmark</p>
         </div>
       </div>

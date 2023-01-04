@@ -7,6 +7,7 @@
     z-index: 150;
     background-color: var(--main);
     position: fixed;
+    overflow: scroll;
 }
 
 .cart {

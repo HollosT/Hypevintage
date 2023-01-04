@@ -9,6 +9,7 @@
     grid-template-columns: repeat(3, 1fr);
     overflow: scroll;
     padding: 8vw;
+    gap: 8vw;
 
 }
 
@@ -20,14 +21,14 @@
 
 .product-container .icon {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 2%;
+    right: 5%;
 }
 
 .product-container .featured-collection-img {
     object-fit: fill;
     aspect-ratio: 1;
-    width: 40vw;
+    width: 50vw;
 }
 
 .featured-collection-header a {

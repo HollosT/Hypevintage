@@ -16,8 +16,8 @@
                 <div class="product-container">
                     {% if image != blank %}
                         <img class="featured-collection-img" src="{{ image | img_url: 'medium' }}" alt="{{ product.title }}">
-                        <span id="productInfoAnchor" class="material-symbols-outlined py-200 icon" data-icon="true" product-handle="{{ product.handle }}">
-                            shopping_bag
+                        <span id="productInfoAnchor" class=" py-200 icon" data-icon="true" product-handle="{{ product.handle }}">
+                            {% render 'add-to-cart' %}    
                         </span>
                     {% else %}
                         {{ 'product-1' | placeholder_svg_tag: 'card-img-top' }}
