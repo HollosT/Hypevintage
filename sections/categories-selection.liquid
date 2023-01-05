@@ -1,0 +1,58 @@
+<section class="category-selection py-700" data-width="less">
+    <h3 class="py-500">{{section.settings.title}}</h3>
+    <div class="category-container">
+        {% for block in section.blocks %}
+        {% assign item = block.settings %}
+            <a class="category" href="{{item.category_collection.url}}">
+                <img class="category-img" src="{{ item.image | img_url: 'master' }}" alt="">
+                <h4>{{item.category_collection.title}}</h4>
+            </a>
+        {% endfor %}
+    </div>
+</section>
+
+
+{% schema %}
+    {
+        "name": "Category selection",
+        "tag": "section",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Category title"
+            }
+        ],
+        "blocks": [
+            {
+                "name": "Category Item",
+                "type": "category",
+                "settings": [
+                    {
+                        "type": "collection",
+                        "id": "category_collection",
+                        "label": "Collection"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image for the category"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+        {
+          "name": "Category selection",
+          "settings": {
+            "title": "Category"
+          },
+          "blocks": [
+            {
+              "type": "category"
+            }
+          ]
+        }
+      ]
+    }
+{% endschema %}

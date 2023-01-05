@@ -78,7 +78,6 @@
 {% schema %}
     {
       "name": "Footer",
-      "tag": "section",
       "class": "footer",
       "limit": 1,
       "settings": [
@@ -127,20 +126,10 @@
         }
       ],
       "presets": [
-        {
-          "name": "Footer",
-          "settings": {
-            "title": "footer"
-          },
-          "blocks": [
-            {
-              "type": "link_list"
-            },
-            {
-              "type": "text"
-            }
-          ]
-        }
+          {
+              "category": "Footer",
+              "name": "Footer"
+          }
       ]
     }
     {% endschema %}
