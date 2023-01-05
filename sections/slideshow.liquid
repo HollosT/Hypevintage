@@ -4,18 +4,18 @@
       <h3>Did you know? #</h3>
       <div class="slides-container py-500">
         {% for block in section.blocks %}
-            {{block.name}}
+          {% assign item = block.settings %}
+            <div class="first-container">
+              <article class="slide" data-slide="{{block.name}}">
+                <img class="slide-img" src="{{item.image}}" alt="{{ item.title }}">
+                <div class="slide-content-container px-500">
+                  <h5>{{item.title}}</h5>
+                  <body>{{item.sub_title}}</body>
+                  </div>
+              </article>
+            </div>
           
       {% endfor %}
-      <div class="first-container">
-        <article class="slide" data-slide="{{block.name}}">
-          <img class="slide-img" src="{{item.image}}" alt="{{ item.title }}">
-          <div class="slide-content-container px-500">
-            <h5>{{item.title}}</h5>
-            <body>{{item.sub_title}}</body>
-            </div>
-            </article>
-            </div>
                 
       <div class="tab-title-container py-400 mt-300">
           {% for block in section.blocks %}

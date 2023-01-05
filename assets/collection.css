@@ -1,0 +1,79 @@
+.collection-container {
+    position: relative;
+}
+.collection-container h1 {
+    font-size: var(--fs-400);
+    font-weight: var(--fw-bold);
+}
+.filter-sort-collection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2vw;
+
+}
+
+.sorting-collection, .filter-collection {
+    width: 100%;
+}
+
+#filterBtn, #sort_by {
+    width: 100%;
+}
+
+.products-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 4vw;
+}
+
+.product-container .collection-img {
+    width: 40vw;
+}
+
+.product-container-collection {
+    height: 40vw;
+}
+
+.product-container .collection-icon {
+    top: 2%;
+    right: 8%;
+}
+
+.filter {
+    display: block;
+    transform: translateX(-200vw);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 150;
+    background-color: white;
+    overflow: scroll;
+}
+
+.open-filter {
+    transition: all 250ms ease-in;
+    transform: translateX(0vw);
+}
+
+.close-filter {
+    transition: all 250ms ease-in;
+    transform: translateX(-200vw);
+}
+
+.filter-titel-container {
+    border-bottom: 1px solid black;
+}
+.filter-titel-container div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin-left: 0 auto;
+}
+
+.filter-titel-container h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}

@@ -13,7 +13,7 @@ if(header != null ) {
 
     const mobileNavBar = document.querySelector('#header')
     const mobileNavBarHeight = mobileNavBar.getBoundingClientRect().height;
-    console.log(mobileNavBarHeight);
+  
 
     const interactCart = [numberOfCartItems, cartIcon]
     //Open cart
@@ -76,7 +76,7 @@ if(header != null ) {
                             }
                         ]
                     };
-                    console.log(formData);
+
                     fetch('/cart/add.js', {
                         method: 'POST',
                         headers: {
@@ -110,7 +110,7 @@ if(header != null ) {
                 fetch('/cart.js')
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data.items.length > 0);
+
                     // Update shopping icon
                     let hasItem = false;
 
