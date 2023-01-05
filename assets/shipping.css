@@ -1,0 +1,22 @@
+.shipping-section {
+    margin-top: 5vw;
+}
+.shipping-section h3 {
+    font-size: 1.375rem;
+    font-weight: bold;
+}
+
+.shipping-info {
+    display: flex;
+    flex: row;
+    gap: 2vw;
+    border-bottom: 1.5px solid var(--black);
+}
+
+.shipping-btn {
+    padding: 3vw;
+    display: flex;
+    background: black;
+    color: white;
+    justify-content: space-around;
+}

@@ -1,0 +1,54 @@
+<section class="shipping-section py-700" data-width="less">
+    <h3 class="py-500">{{section.settings.title}}</h3>
+    <div>
+        <div class="shipping-info py-500">
+            {% render 'back' %}
+            <p>{{section.settings.return_right}}</p>
+        </div>
+        <div class="shipping-info py-500">
+            {% render 'free_shipping' %}
+            <p>{{section.settings.free_shipping}}</p>
+        </div>
+        <div class="shipping-info py-500">
+            {% render 'delivery' %}
+            <p>{{section.settings.shipping}}</p>
+        </div>
+    </div>
+    <a href="#" class="btn shipping-btn">Read more about delivery & return policy</a>
+</section>
+
+{% schema %}
+    {
+        "name": "Shipping",
+        "class": "shipping-section",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title goes here"
+            },
+            {
+                "type": "text",
+                "id": "return_right",
+                "label": "Return right goes here"
+            },
+            {
+                "type": "text",
+                "id": "free_shipping",
+                "label": "Free shipping information goes here"
+            },
+            {
+                "type": "text",
+                "id": "shipping",
+                "label": "Shipping frequency goes here"
+            }
+        ],
+  
+        "presets": [
+            {
+                "category": "Shipping details",
+                "name": "Shipping"
+            }
+        ]
+    }
+  {% endschema %}

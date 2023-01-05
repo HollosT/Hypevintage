@@ -3,48 +3,20 @@
   <div class="slideshow-container"  data-width="less">
       <h3>Did you know? #</h3>
       <div class="slides-container py-500">
-        <div class="first-container">
         {% for block in section.blocks %}
-            {% if block.name == "Sustainability" %}
-            {% assign item = block.settings %}
-                <article class="slide" data-slide="{{block.name}}">
-                      <img class="slide-img" src="{{item.image}}" alt="{{ item.title }}">
-                      <div class="slide-content-container px-500">
-                          <h5>{{item.title}}</h5>
-                          <body>{{item.sub_title}}</body>
-                      </div>
-                </article>
-            {% endif %}
-          {% endfor %}
-          </div>
-          <div class="second-container">
-          {% for block in section.blocks %}
-            {% if block.name == "Second" %}
-            {% assign item = block.settings %}
-                <article class="slide" data-slide="{{block.name}}">
-                      <img class="slide-img" src="{{item.image}}" alt="{{ item.title }}">
-                      <div class="slide-content-container px-500">
-                          <h5>{{item.title}}</h5>
-                          <body>{{item.sub_title}}</body>
-                      </div>
-                </article>
-              {% endif %}
-            {% endfor %}
+            {{block.name}}
+          
+      {% endfor %}
+      <div class="first-container">
+        <article class="slide" data-slide="{{block.name}}">
+          <img class="slide-img" src="{{item.image}}" alt="{{ item.title }}">
+          <div class="slide-content-container px-500">
+            <h5>{{item.title}}</h5>
+            <body>{{item.sub_title}}</body>
             </div>
-          <div class="third-container">
-          {% for block in section.blocks %}
-            {% if block.name == "Cleaning process" %}
-            {% assign item = block.settings %}
-                <article class="slide" data-slide="{{block.name}}">
-                      <img class="slide-img" src="{{item.image}}" alt="{{ item.title }}">
-                      <div class="slide-content-container px-500">
-                          <h5>{{item.title}}</h5>
-                          <body>{{item.sub_title}}</body>
-                      </div>
-                </article>
-            {% endif %}
-          {% endfor %}
-          </div>
+            </article>
+            </div>
+                
       <div class="tab-title-container py-400 mt-300">
           {% for block in section.blocks %}
               <span data-slide="{{block.name}}" class="tab">{{block.name}}</span>
