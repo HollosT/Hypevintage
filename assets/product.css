@@ -1,0 +1,126 @@
+.product-img {
+    width: 100vw;
+    object-fit: contain;
+    aspect-ratio: 1/ 1;
+}
+
+.description-container {
+    border-bottom: 1px solid var(--border);
+}
+
+.description-container p {
+    font-size: 1rem;
+}
+.description-container .brand-description {
+    font-weight: 500;
+}
+.description-container > h1 {
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+.description-option-container {
+    display: flex;
+    flex-direction: row; 
+    gap: 2vw;
+}
+
+.product-price-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+    align-items: center;
+}
+
+
+.quality-container {
+    margin-bottom: 5vw;
+}
+
+.quality-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quality-container h4 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.quality-container a {
+    text-decoration: underline;
+    font-weight: 400;
+}
+
+/* Quality bar */
+.quality-bar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quality-bar-inner {
+    height: 5vw;
+    width: 100%;
+    /* overflow: hidden; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 100vw;
+    background: linear-gradient(to right, #D60000,#DB810C, #FFF563,#78C601);
+    position: relative;
+
+}
+
+.quality-bar-filled {
+    height: 5vw;
+    position: absolute;
+    transition: all 0.3s ease-out;
+    border-right: 2px solid var(--black);
+}
+
+.product-delivery-container {
+    border: 1px solid var(--black);
+    background: white;
+    padding: 3vw;
+    display: flex;
+    flex-direction: column;
+    gap: 4vw;
+    margin-bottom: 5vw;
+}
+
+.product-delivery-break {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+}
+
+.product-delivery-container > div {
+   display: flex;
+   justify-content: space-between;
+}
+.product-delivery-container > div > p {
+   font-weight: 500;
+   color: black;
+}
+
+.product-delivery-container .product-delivery-inner {
+    display: flex;
+    gap: 2vw;
+}
+
+.product-action-container {
+    padding: 8vw 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+}
+
+.product-action-container button {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    justify-content: center;
+}

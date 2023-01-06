@@ -12,7 +12,6 @@
 
 .faq-active {
     transition: height 500ms ease-in-out;
-    height: 50vw;
 }
 .question {
     display: flex;

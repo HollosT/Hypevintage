@@ -1,46 +1,86 @@
 {% assign current_product = selected_or_first_available_variant %}
 {% assign product_image = current_product.featured_image | default: product.featured_image %}
 
+<section id="productPgae">
 
-<section data-width="less">
-    <img src="{{  product_image | img_url: 'large' }}" alt="{{  product_image.alt }}">
-
-    <article class="description-container">
-        <p>{{ product.metafields.custom.brand }}</p>
-        <h1>{{ product.title }}</h1>
-        <div class="description-option-container">
-            {% for value in product.options_by_name.size.values %}
-                <p>Size: {{ value }}</p>
-             {% endfor %}
-            {% for value in product.options_by_name.color.values %}
-                <p>Color: {{ value }}</p>
-             {% endfor %}  
-        </div>
-        <div>
-            <h3>{{product.price | money_without_trailing_zeros}}</h3>
-            <span>(incl. tax)</span>
-        </div>
-        <p>"{{ product.metafields.custom.introductiont }}"</p>
-    </article>
-
-    <section class="quality-container">
-        <h4>Products condition</h4>
-        <div>
-            <div>
-                {{product.metafields.custom.quality.value}}
+    <section data-width="max">
+        <img class="product-img" src="{{  product_image | img_url: 'large' }}" alt="{{  product_image.alt }}">
+    </section>
+    <section data-width="less">
+    
+        <article class="description-container py-200">
+            <p class="brand-description py-200">{{ product.metafields.custom.brand }}</p>
+            <h1 class="py-200">{{ product.title }}</h1>
+            <div class="description-option-container py-200">
+                {% for value in product.options_by_name.size.values %}
+                    <p>Size: {{ value }}</p>
+                 {% endfor %}
+                 <p> | </p>
+                {% for value in product.options_by_name.color.values %}
+                    <p>Color: {{ value }}</p>
+                 {% endfor %}  
             </div>
-        </div>
-        
-    </section>
+            <div class="product-price-container py-200">
+                <h3>{{product.price | money_without_trailing_zeros}}</h3>
+                <span>(incl. tax)</span>
+            </div>
+            <p class="py-200">"{{ product.metafields.custom.introductiont }}"</p>
+        </article>
+    
+        <section class="quality-container py-200">
+            <div class="quality-title-container">
+                <h4 class="py-200">Products condition</h4>
+                 <p class="product-quality-p"></p>
+            </div>
+            <div class="py-600">
+                <div class="quality-bar">
+                    <div class="quality-bar-inner">
+                        <div class="quality-bar-filled" data-quality="{{product.metafields.custom.quality.value}}">
+                                
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <section class="related-sections">
-             <h3>Looking for a complete fit?</h3>
-                {% assign current_collection = collections[product.metafields.custom.related_collection] %}
-                {% render 'related-collection', current_collection: current_collection %}
+            <a href="#">View condition overview</a>
             
-                {% assign additional_collection = collections[product.metafields.custom.additional_collection] %}
-                {% render 'related-collection', current_collection: additional_collection %}
-    </section>
+        </section>
 
+        <section class="product-delivery-container" id="faqSection">
+            <div>
+                <div class="product-delivery-inner">
+                    {% render 'box-delivery' %}
+                    <p>Delivered by DAO/Bring</p>
+                </div>
+                <p class="product-delivery-price">50,00 DKK</p>
+            </div>
+            <div class="product-delivery-break"></div>
+            <p>Free delivery for orders over 599,00 DKK</p>
+        </section>
+
+        <section class="product-q&a-container">
+            {% render 'product-qanda' %}
+            
+        </section>
+        <section class="product-action-container">
+                 <button class="btn btn-active" id="productInfoAnchor" product-handle="{{ product.handle }}">
+                    {% render 'sm-shopping-cart' %}
+                    Add to shopping cart
+                 </button>
+                 <a class="btn" href="/checkout">Purchase now</a>
+        </section>
+    
+        <section class="related-sections">
+                 <h3>Looking for a complete fit?</h3>
+                    {% assign current_collection = collections[product.metafields.custom.related_collection] %}
+                    {% render 'related-collection', current_collection: current_collection %}
+                
+                    {% assign additional_collection = collections[product.metafields.custom.additional_collection] %}
+                    {% render 'related-collection', current_collection: additional_collection %}
+        </section>
+    
+        
+    
+    </section>
 </section>
 
