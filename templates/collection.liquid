@@ -11,10 +11,8 @@
             Filter
           </button>
           {% render 'filters.liquid', results: collection %}
-          {%- if collection.filters.active_values.size > 0 -%}
-                      <p>{{ filter.active_values.size }}</p>
-          {%- endif -%}
-            
+          <p>{{ collection.filters.active_values.size }}</p>
+               
       </div>
       <div class="sorting-collection">
         {% render 'sorting' %}
