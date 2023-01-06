@@ -35,9 +35,11 @@
 
     <section class="related-sections">
              <h3>Looking for a complete fit?</h3>
-             {% assign current_collection = collections[product.metafields.custom.related_collection] %}
-            {% render 'related-collection', current_collection: current_collection %}
-
+                {% assign current_collection = collections[product.metafields.custom.related_collection] %}
+                {% render 'related-collection', current_collection: current_collection %}
+            
+                {% assign additional_collection = collections[product.metafields.custom.additional_collection] %}
+                {% render 'related-collection', current_collection: additional_collection %}
     </section>
 
 </section>
