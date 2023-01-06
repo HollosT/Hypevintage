@@ -64,7 +64,8 @@
         </div>
       </div>
   </section>
-  <section class="footer-final-section py-300" data-width="max">
+  </footer>
+  <footer class="footer-final-section py-300" data-width="max">
       <div class="footer-final">
           <h4 class="py-300">
             All rights reserved
@@ -72,8 +73,19 @@
             to Hypevintage 2022
           </h4>
       </div>
-  </section>
-</footer>
+  </footer>
+
+  {%- comment -%} Bootstrap is being used to breach some issue with css. https://getbootstrap.com/  {%- endcomment -%}
+  {{ 'bootstrap.min.js' | asset_url | script_tag }}
+  {{ 'application.js' | asset_url | script_tag }}
+  {{ 'mobile-category.js' | asset_url | script_tag }}
+  {{ 'slideshow.js' | asset_url | script_tag }}
+  {{ 'faq.js' | asset_url | script_tag }}
+  {{ 'cart.js' | asset_url | script_tag }}
+  {{ 'footer.js' | asset_url | script_tag }}
+  {{ 'collection.js' | asset_url | script_tag }}
+  {{ 'filter.js' | asset_url | script_tag }}
+  
 
 {% schema %}
     {

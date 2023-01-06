@@ -5,6 +5,7 @@
       <div class="slides-container py-500">
         {% for block in section.blocks %}
           {% assign item = block.settings %}
+            
             <div class="first-container">
               <article class="slide" data-slide="{{block.name}}">
                 <img class="slide-img" src="{{item.image}}" alt="{{ item.title }}">

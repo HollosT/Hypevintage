@@ -47,6 +47,7 @@
     --secondary: #484B54;
     --main: #FBF7F5;
     --border: #E7E9EE
+
 }
 
 
@@ -132,7 +133,7 @@ p {
 
 /* Buttons */
 .btn {
-    border-radius: .1vw solid var(--black);
+    border: .1vw solid var(--black);
     padding: 2vw;
     color: var(--black);
     text-align: center;

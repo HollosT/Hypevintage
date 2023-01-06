@@ -1,0 +1,17 @@
+.pagination-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 3vw;
+}
+
+.pagination-active {
+    background: black;
+    padding: .5vw 2vw;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.pagination-active a {
+    color: white;
+}

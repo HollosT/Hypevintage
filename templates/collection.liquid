@@ -1,43 +1,87 @@
+
+
 <section id="collectionPage" class="collection-container py-1000" data-width="less">
     <h1 class="py-1000">{{collection.title}}</h1>
-
+  
     <section class="filter-sort-collection">
       <div class="filter-collection">
-          <button id="filterBtn" class="btn">Filter</button>
+        
+          <button id="filterBtn" class="btn"> 
+            {% render 'filter-icon' %}
+            Filter
+          </button>
           {% render 'filters.liquid', results: collection %}
+          {%- if collection.filters.active_values.size > 0 -%}
+                      <p>{{ filter.active_values.size }}</p>
+          {%- endif -%}
+            
       </div>
       <div class="sorting-collection">
         {% render 'sorting' %}
       </div>
     </section>
+    
 
-  {% paginate collection.products by 5 %}
-      <section id="productsContainer" class="products-container py-500">
-        {% for product in collection.products %}
-          {% assign image = product.featured_media.preview_image %}
-          <article class="featured-collection-article mx-200">
-              <div class="product-container product-container-collection">
-                  {% if image != blank %}
-                      <img class="featured-collection-img collection-img" src="{{ image | img_url: 'medium' }}" alt="{{ product.title }}">
-                      <span id="productInfoAnchor" class="py-200 icon collection-icon" data-icon="true" product-handle="{{ product.handle }}">
-                          {% render 'add-to-cart' %}    
-                      </span>
-                  {% else %}
-                      {{ 'product-1' | placeholder_svg_tag: 'card-img-top' }}
-                  {% endif %}
-              </div>
-              <div>
-                  {% if product.tags != null %}
-                      <p>{{ product.tags[0] }}</p>
-                  {% endif %}
-                  <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
-                  <p>{{product.price | money_without_trailing_zeros}}</p>
-              </div>       
-          </article>
-      {% endfor %}
+  {% paginate collection.products by 3 %}
+      <section id="productsContainer" class=" py-500">
+        {% comment %}
+          Active filters
+        {% endcomment %}
+        <section  class="active-filters-container py-300">
+            {%- if collection.filters.active_values.count > 0 -%}
+              <a href="{{ collection.url }}?sort_by={{ collection.sort_by }}" class="active-filters__clear">Clear all</a>   
+            {% endif %}
+
+              {%- for filter in collection.filters -%}
+                {%- if filter.type == "price_range" -%}
+                  {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
+                    <a class="active-filters__remove-filter" href="{{ filter.url_to_remove }}">
+                      {%- assign min_value = filter.min_value.value | default: 0 -%}
+                      {%- assign max_value = filter.max_value.value | default: filter.range_max -%}
+                      {{ min_value | money }} - {{ max_value | money }} X
+                    </a>
+                  {%- endif -%}
+                {%- else -%}
+                  {%- for filter_value in filter.active_values -%}
+                    <a class="active-filters__remove-filter" href="{{ filter_value.url_to_remove }}">
+                       {{ filter_value.label }}  <span>&times;</span> 
+                    </a>
+                  {%- endfor -%}
+                {%- endif- %}
+              {%- endfor -%}
+        </section>
+        {% comment %}
+          End of active filters
+        {% endcomment %}
+        <div class="products-container">
+          {% for product in collection.products %}
+            {% assign image = product.featured_media.preview_image %}
+            <article class="featured-collection-article mx-200">
+                <div class="product-container product-container-collection">
+                    {% if image != blank %}
+                        <img class="featured-collection-img collection-img" src="{{ image | img_url: 'medium' }}" alt="{{ product.title }}">
+                        <span id="productInfoAnchor" class="py-200 icon collection-icon" data-icon="true" product-handle="{{ product.handle }}">
+                            {% render 'add-to-cart' %}    
+                        </span>
+                    {% else %}
+                        {{ 'product-1' | placeholder_svg_tag: 'card-img-top' }}
+                    {% endif %}
+                </div>
+                <div>
+                    {% if product.tags != null %}
+                        <p>{{ product.tags[0] }}</p>
+                    {% endif %}
+                    <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
+                    <p>{{product.price | money_without_trailing_zeros}}</p>
+                </div>       
+            </article>
+        {% endfor %}
+        </div>
+        
       </section>
 
     {% render 'pagination', paginate: paginate %}
   {% endpaginate %}
 
 </section>
+

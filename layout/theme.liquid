@@ -26,6 +26,7 @@
   {{ 'footer.css' | asset_url | stylesheet_tag }}
   {{ 'shipping.css' | asset_url | stylesheet_tag }}
   {{ 'collection.css' | asset_url | stylesheet_tag }}
+  {{ 'pagination.css' | asset_url | stylesheet_tag }}
   
   <script src="https://unpkg.com/vue@3.0.5"></script> 
   
@@ -37,15 +38,9 @@
     <main role="main">
       {{ content_for_layout }}
     </main>
-  {%- comment -%} Bootstrap is being used to breach some issue with css. https://getbootstrap.com/  {%- endcomment -%}
-  {{ 'bootstrap.min.js' | asset_url | script_tag }}
-  {{ 'application.js' | asset_url | script_tag }}
-  {{ 'mobile-category.js' | asset_url | script_tag }}
-  {{ 'slideshow.js' | asset_url | script_tag }}
-  {{ 'faq.js' | asset_url | script_tag }}
-  {{ 'cart.js' | asset_url | script_tag }}
-  {{ 'footer.js' | asset_url | script_tag }}
-  {{ 'collection.js' | asset_url | script_tag }}
+
+    {% section 'footer-section' %}
+
 </body>
 </html>
 
