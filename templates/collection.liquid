@@ -66,9 +66,9 @@
                     {% endif %}
                 </div>
                 <div>
-                    {% if product.tags != null %}
-                        <p>{{ product.tags[0] }}</p>
-                    {% endif %}
+                  <p>
+                    {{ product.metafields.custom.brand }}
+                  </p>
                     <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
                     <p>{{product.price | money_without_trailing_zeros}}</p>
                 </div>       

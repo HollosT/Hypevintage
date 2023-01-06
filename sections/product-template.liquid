@@ -2,58 +2,43 @@
 {% assign product_image = current_product.featured_image | default: product.featured_image %}
 
 
-<div class="container" id="productContainer">
-    <div class="row">
-        <div class="col-md-5 col-12">
-            <img src="{{  product_image | img_url: 'large' }}" alt="{{  product_image.alt }}" class="img-fluid">
-            {% for image in product.images %}
-                <img src="{{ image.src | img_url: 'medium'}}" alt="{{  image.alt }}">
-            {% endfor %}
+<section data-width="less">
+    <img src="{{  product_image | img_url: 'large' }}" alt="{{  product_image.alt }}">
+
+    <article class="description-container">
+        <p>{{ product.metafields.custom.brand }}</p>
+        <h1>{{ product.title }}</h1>
+        <div class="description-option-container">
+            {% for value in product.options_by_name.size.values %}
+                <p>Size: {{ value }}</p>
+             {% endfor %}
+            {% for value in product.options_by_name.color.values %}
+                <p>Color: {{ value }}</p>
+             {% endfor %}  
         </div>
-        <div class="col-md-6 col-12">
-            <h1>{{ product.title }}</h1>
-            <p>{{ current_product.price | money_with_currency  }}</p>
-
-          <form >
-                <div class="mb-3">
-                    {% if product.variants.size == 1 %}
-                    <ul class="list-group">
-                        {% for variant in product.variants %}
-                            {% if variant.available %}
-                            <li class="list-group-item">{{ variant.title }}</li>        
-                        {% endif %}
-                    {% endfor %}
-                    </ul>
-                    {% else %}
-                    <select name="id" id="productSelectProductPage" class="form-select">
-                        {% for variant in product.variants %}
-                        {% if variant.available %}
-                            <option value="{{ variant.id }}">
-                                {{variant.title}}
-                            </option>
-                        {% else %}
-                             <option value="{{ variant.id }}" disabled="disabled">{{variant.title}}</option>
-                        {% endif %}
-                        {% endfor %}
-                    </select>
-                        
-
-                    {% endif %}
-                </div>
-                
-                <div class="mb-3">
-                    <input type="number" class="form-control" value="1" min="1" name="quantity" id="quantityProductPage">
-                </div> 
-                
-                <button id="addToCartBtn" class="btn btn-secondary btn-lg w-100 rounded-0">Add To Cart</button>
-            </form>    
-                {% if section.settings.dynamic_buttons_checkbox == true %}
-                    {{ form | payment_button }}
-                {% endif %}
-
+        <div>
+            <h3>{{product.price | money_without_trailing_zeros}}</h3>
+            <span>(incl. tax)</span>
         </div>
-    </div>
+        <p>"{{ product.metafields.custom.introductiont }}"</p>
+    </article>
 
-    {% render 'addedcart-popup' %}
+    <section class="quality-container">
+        <h4>Products condition</h4>
+        <div>
+            <div>
+                {{product.metafields.custom.quality.value}}
+            </div>
+        </div>
+        
+    </section>
 
-</div>
+    <section class="related-sections">
+             <h3>Looking for a complete fit?</h3>
+             {% assign current_collection = collections[product.metafields.custom.related_collection] %}
+            {% render 'related-collection', current_collection: current_collection %}
+
+    </section>
+
+</section>
+
