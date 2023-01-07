@@ -14,7 +14,7 @@
 .description-container .brand-description {
     font-weight: 500;
 }
-.description-container > h1 {
+.description-container > h2 {
     font-size: 1.3rem;
     font-weight: 400;
 }

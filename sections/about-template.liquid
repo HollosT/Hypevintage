@@ -1,0 +1,62 @@
+<section data-width="max">
+    <img class="hero-img" src="{{ section.settings.image | img_url: 'master' }}" alt="{{ section.settings.image.alt }}">
+</section>
+<section class="about-container" data-width="less">
+
+    <article class="about-introduction py-300">
+        <h2 class="py-200">{{section.settings.title}}</h2>
+        {{section.settings.introduction}}
+    </article>
+
+    <article class="py-300">
+        <h3 class="py-200">{{section.settings.first_title}}</h3>
+        {{section.settings.first_paragraph}}
+    </article>
+</section>
+
+
+
+
+{% schema %}
+    {
+        "name": "About us",
+        "class": "about-section",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Heading Background Title"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "default": "Example About us Heading",
+                "label": "Heading Title"
+            },
+            {
+                "type": "text",
+                "id": "first_title",
+                "default": "First paragraph title",
+                "label": "First paragraph Title"
+            },
+            {
+                "type": "richtext",
+                "id": "introduction",
+                "default": "<p>Example Paragraph</p>",
+                "label": "Introduction Description"
+            },
+            {
+                "type": "richtext",
+                "id": "first_paragraph",
+                "default": "<p>Example Paragraph</p>",
+                "label": "First Description"
+            }
+        ],
+        "presets": [
+            {
+                "category": "About",
+                "name": "Simple About"
+            }
+        ]
+    }
+  {% endschema %}

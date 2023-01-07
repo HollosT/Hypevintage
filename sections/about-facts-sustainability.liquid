@@ -1,0 +1,82 @@
+<section class="fact-section py-500" data-width="less">
+    <h4 class="py-200">{{section.settings.title}}</h4>
+    <div class="py-200">
+      {{section.settings.introduction}}
+
+    </div>
+    <div class="fact-container py-200">
+      {% for block in section.blocks %}
+        {% assign item = block.settings %}
+        <article class="fact">
+          <img class="fact-img" src="{{item.image | img_url: 'medium' }}" alt="{{ item.image.alt }}">
+          <div class="fact-content">
+            <h5>{{item.sub_title}}</h5>
+            <p>{{item.body}}</p>
+
+          </div>
+        </article>
+        
+      {% endfor %}
+
+    </div>
+</section>
+
+
+{% schema %}
+    {
+      "name": "Sustainability facts",
+      "tag": "section",
+      "class": "about-facts",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Title of the fact",
+          "label": "Fact title"
+        },
+        {
+          "type": "richtext",
+          "id": "introduction",
+          "label": "Introduction of the fact"
+        }
+      ],
+      "blocks": [
+         {
+           "name": "fact",
+           "type": "text",
+           "settings": [
+             {
+               "type": "image_picker",
+               "id": "image",
+               "label": "Image"
+             },
+             {
+               "type": "text",
+               "id": "sub_title",
+               "label": "Sub-title"
+             },
+             {
+               "type": "richtext",
+               "id": "body",
+               "label": "body"
+             }
+           ]
+         }
+      ],
+      "presets": [
+        {
+          "name": "Slideshow",
+          "settings": {
+            "title": "Slideshow"
+          },
+          "blocks": [
+            {
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    }
+    {% endschema %}
+  
+  

@@ -8,7 +8,7 @@
             
             <div class="first-container">
               <article class="slide" data-slide="{{block.name}}">
-                <img class="slide-img" src="{{item.image}}" alt="{{ item.title }}">
+                <img class="slide-img" src="{{item.image | img_url: 'master' }}" alt="{{ item.image.alt }}">
                 <div class="slide-content-container px-500">
                   <h5>{{item.title}}</h5>
                   <body>{{item.sub_title}}</body>

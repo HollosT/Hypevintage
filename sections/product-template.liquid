@@ -10,7 +10,7 @@
     
         <article class="description-container py-200">
             <p class="brand-description py-200">{{ product.metafields.custom.brand }}</p>
-            <h1 class="py-200">{{ product.title }}</h1>
+            <h2 class="py-200">{{ product.title }}</h2>
             <div class="description-option-container py-200">
                 {% for value in product.options_by_name.size.values %}
                     <p>Size: {{ value }}</p>

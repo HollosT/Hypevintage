@@ -1,7 +1,7 @@
 .collection-container {
     position: relative;
 }
-.collection-container h1 {
+.collection-container h2 {
     font-size: var(--fs-400);
     font-weight: var(--fw-bold);
 }

@@ -1,0 +1,45 @@
+.about-container h3, h2 {
+    font-size: 1.375rem;
+    font-weight:800;
+}
+
+/* Facts */
+
+.fact-section h4 {
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+.fact-container {
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+}
+
+.fact {
+    position: relative;
+    margin-right: 5vw;
+}
+
+.fact-img {
+    height: 80vw;
+
+    width: 65vw;
+    object-fit:fill;
+    aspect-ratio: 1 /1;
+    z-index: -1;
+}
+
+.fact-content {
+    position: absolute;
+    bottom: 0;
+}
+
+.fact-content h5 {
+    font-size: 1rem;
+    font: 400;
+    color: white;
+}
+.fact-content p {
+    color: #C9CBD2;
+}
