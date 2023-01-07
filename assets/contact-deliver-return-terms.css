@@ -15,7 +15,7 @@
     padding: 2vw;
 }
 
-.delivery-title {
+.return-delivery-title {
     display: flex;
     gap: 2vw;
     align-items: center;
@@ -44,12 +44,12 @@
 
 
 
-.delivery-action-container {
+.concat-action-container {
     display: flex;
     flex-direction: column;
     gap: 3vw;
 }
-.delivery-action-container h4 {
+.concat-action-container h4 {
     font-size: 1rem;
     font-weight: bold;
 }

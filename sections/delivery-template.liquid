@@ -1,23 +1,23 @@
 <section class="py-500" data-width="less">
     <h2 class="py-400">Delivery information</h2>
     
-    <article class="delivery-time-container py-500">
-        <h3 class="delivery-title py-300">
+    <article class="return-delivery-article delivery-time-container py-500">
+        <h3 class="return-delivery-title py-300">
             {% render 'time' %}
             {{section.settings.time_title}}
         </h3>
         {{section.settings.time_description}}
     </article>
-    <article class="delivery-rate-container py-500">
-        <h3 class="delivery-title py-300">
+    <article class="return-delivery-article delivery-rate-container py-500">
+        <h3 class="return-delivery-title py-300">
             {% render 'rate' %}
             {{section.settings.rate_title}}
         </h3>
         {{section.settings.rate_description}}
     </article>
 
-    <article class="delivery-procedure-container py-500">
-        <h3 class="delivery-title py-300">
+    <article class="return-delivery-article delivery-procedure-container py-500">
+        <h3 class="return-delivery-title py-300">
             {% render 'truck' %}
             {{section.settings.procedure_title}}
         </h3>
@@ -32,7 +32,7 @@
             </ul>
     </article>
 
-    <div class="delivery-action-container py-500">
+    <div class="concat-action-container py-500">
         <h4>If you have more questions, contact us! We will get back to you as soon as possible.</h4>
         <a href="https://hypevintage-aalborg.myshopify.com/pages/contact" class="btn btn-active">Contact us</a>
     </div>
