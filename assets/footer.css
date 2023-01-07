@@ -80,7 +80,7 @@ footer {
     display: flex;
     flex-direction: row;
     font-size: 1rem;
-    justify-items: center;
+    justify-content: center;
     gap: .5vw;
 }
 
