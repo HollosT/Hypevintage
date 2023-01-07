@@ -1,19 +1,26 @@
-<section class="fact-section" data-width="less">
-    <h4>{{section.settings.title}}</h4>
-    {{section.settings.introduction}}
-    <div class="fact-container">
+<section class="fact-section py-700" data-width="less">
+    <h4 class="py-200">{{section.settings.title}}</h4>
+    <div class="py-200">
+      {{section.settings.introduction}}
+
+    </div>
+    <div class="fact-container py-200">
       {% for block in section.blocks %}
         {% assign item = block.settings %}
         <article class="fact">
-          <img class="slide-img" src="{{item.image | img_url: 'medium' }}" alt="{{ item.image.alt }}">
-          <h5>{{item.sub_title}}</h5>
-          <h5>{{item.body}}</h5>
+          <img class="fact-img" src="{{item.image | img_url: 'medium' }}" alt="{{ item.image.alt }}">
+          <div class="fact-content">
+            <h5 class="py-200">{{item.sub_title}}</h5>
+            <p>{{item.body}}</p>
+
+          </div>
         </article>
         
       {% endfor %}
 
     </div>
 </section>
+
 
 
 {% schema %}

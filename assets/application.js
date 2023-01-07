@@ -79,6 +79,10 @@ if(hamburgerIcon != null ) {
     const hamburgerMenu = document.querySelector('#hamburgerMenu');
     const mobileNavBar = document.querySelector('.mobile-nav');
     const navCloseX = document.querySelector('#navCloseX');
+    const mobileNavBarHeight = mobileNavBar.getBoundingClientRect().height;
+    mobileNavBar.style.heigth = `${mobileNavBarHeight}px`
+
+
 
      hamburgerIcon.addEventListener('click', (e) => {
          if(hamburgerMenu.classList.contains('opened')) {

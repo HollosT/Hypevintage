@@ -5,9 +5,15 @@
     margin-bottom: 5vw;
     width: 100vw;
     background: var(--main);
-    position: fixed;
     z-index: 120;
+    position: fixed;
+    margin-bottom: 10vw;
 }
+
+.nav-wrapper {
+    padding-bottom: 10vw;
+}
+
 
 .mobile-nav > div {
     width: var(--site-width);

@@ -1,0 +1,16 @@
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+}
+
+.contact-form button {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    justify-content: center;
+}
+.contact-form input, textarea {
+    margin-bottom: 3vw;
+    padding: 2vw;
+}

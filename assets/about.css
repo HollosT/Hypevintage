@@ -21,6 +21,15 @@
     margin-right: 5vw;
 }
 
+.fact::before {
+    content: "";
+    inset: 0;
+    position: absolute;
+    width: 100%;
+    background: linear-gradient( white, black);
+    opacity: .8;
+}
+
 .fact-img {
     height: 80vw;
 
@@ -32,7 +41,8 @@
 
 .fact-content {
     position: absolute;
-    bottom: 0;
+    bottom: 0%;
+    padding: 4vw;
 }
 
 .fact-content h5 {

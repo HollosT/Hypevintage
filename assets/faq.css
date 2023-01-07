@@ -13,6 +13,9 @@
 .faq-active {
     transition: height 500ms ease-in-out;
 }
+.faq-active h5 {
+    font-weight: 800;
+}
 .question {
     display: flex;
     flex-direction: row;

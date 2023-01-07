@@ -153,9 +153,9 @@ if(header != null ) {
 
             const drawCartTitle = (status) => {
                 if(status) {
-                    cartTitle.innerHTML = 'Your shopping bag'
+                    cartTitle.innerHTML = 'Your selected items'
                 } else if (status === false) {
-                    cartTitle.innerHTML = 'Your shopping bag is empty'
+                    cartTitle.innerHTML = "You haven't selected items yet"
                 }
             }
 
