@@ -3,6 +3,10 @@
     justify-content: space-between;
     justify-items: baseline;
 }
+.featured-collection-header h3 {
+    font-size: 1.25rem;
+    font-weight: 400;
+}
 
 .featured-collection-container {
     display: grid;

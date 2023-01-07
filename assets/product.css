@@ -124,3 +124,8 @@
     gap: 2vw;
     justify-content: center;
 }
+
+.related-sections .related-section-title {
+    font-size: 1.375rem;
+    font-weight: bold;
+}

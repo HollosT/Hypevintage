@@ -59,7 +59,9 @@
         </section>
 
         <section class="product-q&a-container">
-            {% render 'product-qanda' %}
+            {% assign origin_story = product.metafields.custom.origin %}
+
+            {% render 'product-qanda', origin_story: origin_story %}
             
         </section>
         <section class="product-action-container">
@@ -70,8 +72,8 @@
                  <a class="btn" href="/checkout">Purchase now</a>
         </section>
     
-        <section class="related-sections">
-                 <h3>Looking for a complete fit?</h3>
+        <section class="related-sections py-400">
+                 <h3 class="related-section-title py-300">Looking for a complete fit?</h3>
                     {% assign current_collection = collections[product.metafields.custom.related_collection] %}
                     {% render 'related-collection', current_collection: current_collection %}
                 
