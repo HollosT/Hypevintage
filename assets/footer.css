@@ -83,3 +83,14 @@ footer {
     justify-items: center;
     gap: .5vw;
 }
+
+.success-msg {
+    background: white;
+    border: 1px solid black;
+    
+}
+
+.success-msg h4 {
+    font-size: 125rem;
+    font-weight: 400;
+}

@@ -1,9 +1,9 @@
-<section class="py-500" data-width="less">
+<section class="py-500" data-width="less" id="contactPage">
   <h2 class="py-300">{{ page.title }}</h2>
   <p class="py-500">If you have any questions, please contact us by email via the contact form below and we will get back to you as soon as possible. We aim to respond to all inquiries within one working day. </p>
   <div class="contact-form">
     {% form 'contact' %}
-      {% if form.posted_successfully? %} Thank you for your contact {% endif %}
+      {% if form.posted_successfully? %} Thank you for your email {% endif %}
       {{ form.errors | default_errors }}
       <label for="ContactFormName">Your name</label>
       <input type="text" id="ContactFormName" name="contact[name]" placeholder="Enter your name...">
@@ -11,7 +11,7 @@
       <input type="email" id="ContactFormEmail" name="contact[email]" placeholder="Enter your email address...">
       <label for="ContactFormMessage">Message</label>
       <textarea rows="8" id="ContactFormMessage" name="contact[body]" placeholder="Write your message..."></textarea>
-      <button type="submit" class="btn btn-active">
+      <button type="submit" class="btn btn-active" id="contactSendBtn">
         {% render 'message' %}
         Send the message
       </button>
