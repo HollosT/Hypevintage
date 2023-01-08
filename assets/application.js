@@ -106,17 +106,17 @@ if(hamburgerIcon != null ) {
     const navTitle = document.querySelectorAll('.nav-title');
 
     subNavContainer.addEventListener('click', e => {
-        const clicked = e.target.closest('.menu-arrow');
+        const clicked = e.target.closest('.subnav-container');
         if(!clicked) return;
 
         const id = clicked.dataset.sub;
 
         if(clicked.dataset.open === 'false') {
-            clicked.classList.add('active-arrow')
+            clicked.classList.add('active-arrow-menu')
             open(id)
             clicked.dataset.open = 'true';
         } else if(clicked.dataset.open === 'true') {
-            clicked.classList.remove('active-arrow')
+            clicked.classList.remove('active-arrow-menu')
             close(id)
             clicked.dataset.open = 'false';
         }

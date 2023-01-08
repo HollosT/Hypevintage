@@ -4,10 +4,10 @@
       {% assign index = forloop.index %}
       
         <ul class="subnav-ul py-300">
-            <div class="subnav-container">
+            <div class="subnav-container" data-open="false" data-sub="{{ index }}">
               {% if link.links.size > 1 %}
               <h5 class="nav-title" data-sub="{{ index }}">{{ link.title  }}</h5>
-              <span class="material-symbols-outlined menu-arrow arrow" data-open="false" data-sub="{{ index }}">
+              <span class="material-symbols-outlined menu-arrow arrow" >
                         expand_more
                 </span>
                 {% else %}

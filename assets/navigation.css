@@ -107,6 +107,7 @@
  }
 
  .subnav-container {
+    cursor: pointer;
     width: 80vw;
     display: flex;
     flex-direction: row;
@@ -115,6 +116,13 @@
 
 .sub-sub-nav {
     margin-left: 5vw;
+}
+.menu-arrow  {
+    
+    transition: all 250ms ease-in-out;
+}
+.active-arrow-menu .menu-arrow {
+    transform: rotate(180deg);
 }
 
 .active-subnav-title {
