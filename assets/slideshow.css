@@ -13,7 +13,13 @@
 
 .slides-container {
     display: flex;
-    overflow: hidden;
+    /* overflow: hidden; */
+}
+.slide-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: scroll;
 }
 
 .slide {
@@ -21,25 +27,24 @@
     transition: all 350ms ease-in-out;
 }
 
-.slide .slide-img {
+.slide-img {
     position: relative;
     width: 90vw;
     height: 100vw;
     object-fit: cover;
     aspect-ratio: 1 /1;
-    z-index: -1;
+    z-index: 1;
 }
 
-.slide .slide-img::before {
-    display: block;
+.slide-img::before {
     content: "";
-    position: absolute;
     inset: 0;
-    opacity: 1;
-    background: black;
+    position: absolute;
+    width: 100%;
+    background: linear-gradient( white, black);
+    opacity: .8;
     z-index: 100;
 }
-
 .slide .slide-content-container {
     position: absolute;
     bottom: 0;

@@ -3,20 +3,51 @@
   <div class="slideshow-container"  data-width="less">
       <h3>Did you know? #</h3>
       <div class="slides-container py-500">
-        {% for block in section.blocks %}
-          {% assign item = block.settings %}
+        
+        {% assign text_blocks = section.blocks | where: 'type', 'text' %}
+        <div class="slide-container" data-slide="1">
+
+          {% for block in text_blocks %}
+            <article class="slide">
+              <img class="slide-img" src="{{block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt }}">
+              <div class="slide-content-container px-500">
+                <h5>{{block.settings.sub_title}}</h5>
+                <p>{{block.settings.body}}</p>
+              </div>
+            </article>
+
+            {% endfor %}
+        </div>
+        {% assign image_blocks = section.blocks | where: 'type', 'image' %}
+        <div class="slide-container hide" data-slide="2">
+
+          {% for block in image_blocks %}
+            <article class="slide">
+              <img class="slide-img" src="{{block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt }}">
+              <div class="slide-content-container px-500">
+                <h5>{{block.settings.sub_title}}</h5>
+                <p>{{block.settings.body}}</p>
+              </div>
+            </article>
+
+            {% endfor %}
+        </div>
+        {% assign slide_blocks = section.blocks | where: 'type', 'slide' %}
+        <div class="slide-container hide" data-slide="1">
+
+          {% for block in slide_blocks %}
+            <article class="slide">
+              <img class="slide-img" src="{{block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt }}">
+              <div class="slide-content-container px-500">
+                <h5>{{block.settings.sub_title}}</h5>
+                <p>{{block.settings.body}}</p>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
             
-            <div class="first-container">
-              <article class="slide" data-slide="{{block.name}}">
-                <img class="slide-img" src="{{item.image | img_url: 'master' }}" alt="{{ item.image.alt }}">
-                <div class="slide-content-container px-500">
-                  <h5>{{item.title}}</h5>
-                  <body>{{item.sub_title}}</body>
-                  </div>
-              </article>
-            </div>
           
-      {% endfor %}
+   
                 
       <div class="tab-title-container py-400 mt-300">
           {% for block in section.blocks %}
@@ -49,11 +80,6 @@
          "type": "text",
          "settings": [
            {
-             "type": "text",
-             "id": "title",
-             "label": "Main title"
-           },
-           {
              "type": "image_picker",
              "id": "image",
              "label": "Image"
@@ -75,11 +101,6 @@
          "type": "image",
          "settings": [
            {
-             "type": "text",
-             "id": "title",
-             "label": "Main title"
-           },
-           {
              "type": "image_picker",
              "id": "image",
              "label": "Image"
@@ -100,11 +121,6 @@
          "name": "Cleaning process",
          "type": "slide",
          "settings": [
-           {
-             "type": "text",
-             "id": "title",
-             "label": "Main title"
-           },
            {
              "type": "image_picker",
              "id": "image",
