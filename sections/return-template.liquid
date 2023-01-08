@@ -1,38 +1,37 @@
 <section class="py-500" data-width="less">
     <h2 class="py-400">Return policy</h2>
     
-    <article class="return-delivery-article py-500">
+    <article class="return-delivery-article border-bottom py-500">
         <h3 class="return-delivery-title py-300">
             {% render 'time' %}
             {{section.settings.time_title}}
         </h3>
         {{section.settings.time_description}}
     </article>
-    <article class="return-delivery-article py-500">
+    <article class="return-delivery-article border-bottom py-500">
         <h3 class="return-delivery-title py-300">
             {% render 'packaging' %}
             {{section.settings.packaging_title}}
         </h3>
         {{section.settings.packaging_description}}
     </article>
-    <article class="return-delivery-article py-500">
+    <article class="return-delivery-article border-bottom py-500">
         <h3 class="return-delivery-title py-300">
             {% render 'return' %}
             {{section.settings.return_title}}
         </h3>
         {% for block in section.blocks %}
-            {% assign item = block.settings %}
-            <p class="py-100">{{item}}</p>
+            <p class="py-100">{{block.settings.return_body}}</p>
         {% endfor %}
     </article>
-    <article class="return-delivery-article py-500">
+    <article class="return-delivery-article border-bottom py-500">
         <h3 class="return-delivery-title py-300">
             {% render 'delayed' %}
             {{section.settings.delayed_title}}
         </h3>
         {{section.settings.delayed_description}}
     </article>
-    <article class="return-delivery-article py-500">
+    <article class="return-delivery-article  py-500">
         <h3 class="return-delivery-title py-300">
             {% render 'exchanges' %}
             {{section.settings.exchange_title}}

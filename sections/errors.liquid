@@ -1,0 +1,33 @@
+<section class="py-500" data-width="less">
+
+        <article class="return-delivery-article py-500">
+        <h3 class="return-delivery-title py-300">
+            {% render 'errors' %}
+           {{section.settings.error_title}}
+        </h3>
+        {{section.settings.error_description}}
+        
+    </article>
+
+</section>
+
+{% schema %}
+    {
+        "name": "Error",
+        "class": "error-section",
+        "settings": [
+            {
+                "type": "text",
+                "id": "error_title",
+                "default": "Example Heading",
+                "label": "Error title"
+            },
+            {
+                "type": "richtext",
+                "id": "error_description",
+                "default": "<p>Example Paragraph</p>",
+                "label": "Error description"
+            }
+        ]
+    }
+  {% endschema %}

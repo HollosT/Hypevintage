@@ -22,7 +22,7 @@
     font-size: 1.125;
 }
 
-.delivery-time-container, .delivery-rate-container {
+.border-bottom {
     border-bottom: 1px solid black;
 }
 
@@ -52,4 +52,10 @@
 .concat-action-container h4 {
     font-size: 1rem;
     font-weight: bold;
+}
+
+.return-delivery-subtitle {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 6vw;
 }

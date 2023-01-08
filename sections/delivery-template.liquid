@@ -1,14 +1,14 @@
 <section class="py-500" data-width="less">
     <h2 class="py-400">Delivery information</h2>
     
-    <article class="return-delivery-article delivery-time-container py-500">
+    <article class="return-delivery-article delivery-time-container border-bottom py-500">
         <h3 class="return-delivery-title py-300">
             {% render 'time' %}
             {{section.settings.time_title}}
         </h3>
         {{section.settings.time_description}}
     </article>
-    <article class="return-delivery-article delivery-rate-container py-500">
+    <article class="return-delivery-article delivery-rate-container border-bottom py-500">
         <h3 class="return-delivery-title py-300">
             {% render 'rate' %}
             {{section.settings.rate_title}}
@@ -26,8 +26,7 @@
         <h4 class="py-300">After the package has been sent, you will receive your tracking number in the following ways:</h4>
             <ul>
                 {% for block in section.blocks %}
-                    {% assign item = block.settings %}
-                    <li class="py-200">{{item.step_delivery}}</li>
+                    <li class="py-200">{{block.settings.step_delivery}}</li>
                 {% endfor %}
             </ul>
     </article>

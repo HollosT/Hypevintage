@@ -1,0 +1,57 @@
+<section class="py-500" data-width="less">
+
+        <article class="return-delivery-article border-bottom py-500">
+        <h3 class="return-delivery-title py-300">
+            {% render 'privacy' %}
+            {{section.settings.privacy_title}}
+        </h3>
+        {% for block in section.blocks %}
+            <h4 class="return-delivery-subtitle">{{block.settings.privacy_subtitle}}</h4>
+            <p class="py-100" >{{block.settings.privacy_body}}</p>
+        {% endfor %}
+    </article>
+
+</section>
+
+{% schema %}
+    {
+        "name": "Privacy",
+        "class": "privacy-section",
+        "settings": [
+            {
+                "type": "text",
+                "id": "privacy_title",
+                "default": "Example Heading",
+                "label": "Privacy title"
+            }
+        ],
+        "blocks": [
+            {
+                "name": "Complain paragraphs",
+                "type": "text",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "privacy_subtitle",
+                        "label": "Privacy subtitle"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "privacy_body",
+                        "label": "Privacy paragraphs"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+        {
+          "name": "Privacy",
+          "blocks": [
+            {
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    }
+  {% endschema %}
