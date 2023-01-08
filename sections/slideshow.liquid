@@ -1,11 +1,11 @@
 
 <section id="slideShow"  data-width="max">
   <div class="slideshow-container"  data-width="less">
-      <h3>Did you know? #</h3>
-      <div class="slides-container py-500">
-        
-        {% assign text_blocks = section.blocks | where: 'type', 'text' %}
-        <div class="slide-container" data-slide="1">
+    <div class="slides-container py-200">
+      
+      <h3 class="slider-title py-200">Did you know? <span>#Sustainability</span></h3>
+      {% assign text_blocks = section.blocks | where: 'type', 'text' %}
+      <div class="slide-container" data-slide="1">
 
           {% for block in text_blocks %}
             <article class="slide">
@@ -17,6 +17,7 @@
             </article>
 
             {% endfor %}
+            
         </div>
         {% assign image_blocks = section.blocks | where: 'type', 'image' %}
         <div class="slide-container hide" data-slide="2">
@@ -33,7 +34,7 @@
             {% endfor %}
         </div>
         {% assign slide_blocks = section.blocks | where: 'type', 'slide' %}
-        <div class="slide-container hide" data-slide="1">
+        <div class="slide-container hide" data-slide="3">
 
           {% for block in slide_blocks %}
             <article class="slide">
@@ -47,12 +48,10 @@
         </div>
             
           
-   
-                
       <div class="tab-title-container py-400 mt-300">
-          {% for block in section.blocks %}
-              <span data-slide="{{block.name}}" class="tab">{{block.name}}</span>
-          {% endfor %}
+          <span class="tab active-slide" data-slide="1">Sustainability</span>
+          <span class="tab" data-slide="2">Benefit</span>
+          <span class="tab" data-slide="3">Cleaning process</span>
       </div>
   </div>
 </section>
