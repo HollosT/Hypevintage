@@ -1,6 +1,13 @@
 const footerArrows = document.querySelectorAll('.footer-arrow');
 
 if(footerArrows.length > 0) {
+    // Navigate back to the top
+    const upArrow = document.querySelector('#upArrow')
+    upArrow.addEventListener('click', () => {
+        const header = document.querySelector('#header');
+        header.scrollIntoView({behavior: 'smooth'})
+    })
+
 
     const footerSections = document.querySelectorAll('.footer-collapse');
 

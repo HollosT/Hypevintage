@@ -13,7 +13,7 @@ if(header != null ) {
 
     const mobileNavBar = document.querySelector('#header')
     const mobileNavBarHeight = mobileNavBar.getBoundingClientRect().height;
-  
+    let prevSum = 0;
 
     const interactCart = [numberOfCartItems, cartIcon]
     //Open cart
@@ -88,6 +88,7 @@ if(header != null ) {
                         return resp.json();
                     })
                     .then((data) => {
+                        numberOfCartItems.classList.remove('change-cart-item')
                         updateCart();
                         
                         
@@ -103,6 +104,7 @@ if(header != null ) {
             
             // Update cart
             document.addEventListener('DOMContentLoaded', function() {
+                numberOfCartItems.classList.remove('change-cart-item')
                 updateCart();
             })
             
@@ -110,6 +112,8 @@ if(header != null ) {
                 fetch('/cart.js')
                 .then(res => res.json())
                 .then(data => {
+                    
+                    
 
                     // Update shopping icon
                     let hasItem = false;
@@ -130,8 +134,15 @@ if(header != null ) {
                         const sum = items.reduce((acc, value) => {
                             return acc + value;
                         }, 0)
-                        document.querySelector('#numberOfCartItems').innerHTML = sum;
+                        if( prevSum != sum) {
+                            numberOfCartItems.classList.remove('change-cart-item')
 
+                            numberOfCartItems.classList.add('change-cart-item')
+                        }
+                        
+                        numberOfCartItems.innerHTML = sum;
+                        prevSum = sum;
+                        
                     }
                     
                     if(hasItem) {
@@ -144,8 +155,11 @@ if(header != null ) {
                         drawCartTitle(hasItem)
                     } else if (hasItem === false) {
                         drawCartTitle(hasItem)
+                        cartItemContainer.innerHTML = '';
+                        priceContainer.innerHTML = '';
                     }
                 })
+
                 .catch(err => {
                     console.log(err);
                 })
@@ -189,7 +203,7 @@ if(header != null ) {
             
             
             const drawProducts = (products) => {
-                const cartItems = products.map(product => drawProductHtml(product));
+                const cartItems = products.map((product, i) => drawProductHtml(product, i));
                 cartItemContainer.innerHTML = '';
                 cartItems.forEach(item => {
                     cartItemContainer.insertAdjacentHTML('afterbegin', item)
@@ -197,7 +211,8 @@ if(header != null ) {
                 addHandlerToRemoveBtn();
             }
             
-            const drawProductHtml = (product) => {
+            const drawProductHtml = (product, i) => {
+
                 const length = String(product.price).length;
                 const price = Number(String(product.price).substring(0, length - 2))
                                 
@@ -218,7 +233,7 @@ if(header != null ) {
                             ${variant != null ? variant :  ''}
                             <h5>${price}.00 DKK</h5>
                         </div>
-                        <p class="cart-item-remove" data-remove='${product.variant_id}'>&times;</p>
+                        <p class="cart-item-remove" data-remove='${i + 1}'>&times;</p>
                     </div>
                 </article>
                 `
@@ -229,22 +244,20 @@ if(header != null ) {
                     const clicked = e.target.closest('.cart-item-remove');
                     if(!clicked) return;
 
-                    const variant = clicked.dataset.remove;
-                    removeItem(variant);
+                    const lineNumber = clicked.dataset.remove;
+                    removeItem(lineNumber);
                     
                 })
             }
 
-            const removeItem = (variant) => {
+            const removeItem = (lineNumber) => {
                 
                 const formData = {
-                    'items': [
-                        {
-                            'id': variant,
-                            'quantity': 0
-                        }
-                    ]
+                        'line': lineNumber,
+                        'quantity': 0
+   
                 };
+
                 fetch('/cart/change.js', {
                     method: 'POST',
                     headers: {
@@ -252,11 +265,9 @@ if(header != null ) {
                     },
                     body: JSON.stringify(formData)
                 })
-                .then(res => {
-                    console.log(res.json());
-                    return res.json();
-                })
+                .then(res => res.json())
                 .then((data) => {
+                    numberOfCartItems.classList.remove('change-cart-item')
                     updateCart();
                     
                 })
