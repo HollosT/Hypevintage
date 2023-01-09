@@ -59,3 +59,11 @@
     font-weight: 400;
     margin-top: 6vw;
 }
+/* Terms page */
+
+.term-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

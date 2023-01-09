@@ -1,6 +1,7 @@
 .introduction-container {
     background-color: var(--black);
     margin-top: 10vw;
+    border-bottom: .5px solid white;
 }
 .introduction-container > div {
     width: var(--site-width);
@@ -9,4 +10,11 @@
 
 .introduction-container  div > *{
    color: white;
+}
+
+.introduction-container a {
+    display: flex;
+    color: black;
+    margin-top: 7vw;
+    justify-content: center;
 }

@@ -1,11 +1,18 @@
-<section class="py-500" data-width="less">
+<section class="term-section py-500" data-width="less">
 
         <article class="return-delivery-article py-500">
-        <h3 class="return-delivery-title py-300">
-            {% render 'errors' %}
-           {{section.settings.error_title}}
-        </h3>
-        {{section.settings.error_description}}
+            <div  class="term-title">
+                <h3 class="return-delivery-title py-300" data-term="3">
+                    {% render 'errors' %}
+                   {{section.settings.error_title}}
+                </h3>
+                <span class="material-symbols-outlined term-arrow arrow" data-open="false" data-term="3">
+                    expand_less
+                </span>
+            </div>
+        <div class="term-content hide" data-term="3">
+            {{section.settings.error_description}}
+        </div>
         
     </article>
 

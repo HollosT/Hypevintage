@@ -1,14 +1,21 @@
-<section class="py-500" data-width="less">
+<section class="term-section py-500" data-width="less">
 
         <article class="return-delivery-article border-bottom py-500">
-        <h3 class="return-delivery-title py-300">
-            {% render 'privacy' %}
-            {{section.settings.privacy_title}}
-        </h3>
-        {% for block in section.blocks %}
-            <h4 class="return-delivery-subtitle">{{block.settings.privacy_subtitle}}</h4>
-            <p class="py-100" >{{block.settings.privacy_body}}</p>
-        {% endfor %}
+        <div class="term-title">
+            <h3 class="return-delivery-title py-300" data-term="1">
+                {% render 'privacy' %}
+                {{section.settings.privacy_title}}
+            </h3>
+            <span class="material-symbols-outlined term-arrow arrow" data-open="false" data-term="1">
+                expand_less
+            </span>
+        </div>
+        <div class="term-content hide" data-term="1">
+            {% for block in section.blocks %}
+                <h4 class="return-delivery-subtitle">{{block.settings.privacy_subtitle}}</h4>
+                <p class="py-100" >{{block.settings.privacy_body}}</p>
+            {% endfor %}
+        </div>
     </article>
 
 </section>
