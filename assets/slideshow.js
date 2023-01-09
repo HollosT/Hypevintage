@@ -4,7 +4,7 @@ if(slideShow != null) {
   const tabContainer = document.querySelector('.tab-title-container')
   const slideContainer = document.querySelectorAll('.slide-container');
   const tabs = document.querySelectorAll('.tab');
-  const activeBackground = document.querySelector('.tab-active-background');
+  const activeBackground = document.querySelector('.active-slide');
 
 
   tabContainer.addEventListener('click', e => {
@@ -13,20 +13,29 @@ if(slideShow != null) {
     if(!clicked) return;
 
     const slideId = clicked.dataset.slide;
-    // const tabLeft = clicked.getBoundingClientRect().left;
-    // // const tabTop = clicked.getBoundingClientRect().y;
+ 
+    const distance = (tabs[0].getBoundingClientRect().left - tabs[2].getBoundingClientRect().left) / 2;
+   
+    switch (slideId) {
+      case "1":
+        activeBackground.style.transform = `translateX(${distance}px)`
+      break;
+      case "2":
+        activeBackground.style.transform = `translateX(0px)`
+      break;
+      case "3":
+        activeBackground.style.transform = `translateX(${-distance}px)`
+      break;
+    
+      default:
+        break;
+    }
 
-    // const bgLeft = activeBackground.getBoundingClientRect().left;
-    // // const bgTop = activeBackground.getBoundingClientRect().y;
-
-  
+    
 
 
-    // activeBackground.style.transform = `translateX(${tabLeft - bgLeft}px)`
-
-
-    tabs.forEach(tab => tab.classList.remove('active-slide'))
-    clicked.classList.add('active-slide')
+    tabs.forEach(tab => tab.classList.remove('active-tab'))
+    clicked.classList.add('active-tab')
     setSliders(slideId)
   }) 
 
@@ -57,9 +66,4 @@ if(slideShow != null) {
   }
 
 
-  const initSlide = () => {
-    setSliders(1)
-  }
-
-  initSlide()
 }

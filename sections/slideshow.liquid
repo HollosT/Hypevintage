@@ -3,9 +3,9 @@
   <div class="slideshow-container"  data-width="less">
     <div class="slides-container py-200">
       
-      <h3 class="slider-title py-200">Did you know? <span>#Sustainability</span></h3>
+      <h3 class="slider-title py-200">Did you know? <span>#BenefitsOfSecondHand</span></h3>
       {% assign text_blocks = section.blocks | where: 'type', 'text' %}
-      <div class="slide-container" data-slide="1">
+      <div class="slide-container hide" data-slide="1">
 
           {% for block in text_blocks %}
             <article class="slide">
@@ -20,7 +20,7 @@
             
         </div>
         {% assign image_blocks = section.blocks | where: 'type', 'image' %}
-        <div class="slide-container hide" data-slide="2">
+        <div class="slide-container" data-slide="2">
 
           {% for block in image_blocks %}
             <article class="slide">
@@ -49,8 +49,9 @@
             
           
       <div class="tab-title-container py-400 mt-300">
-          <span class="tab active-slide" data-slide="1">Sustainability</span>
-          <span class="tab" data-slide="2">Benefit</span>
+          <span class="active-slide"></span>
+          <span class="tab" data-slide="1">Sustainability</span>
+          <span class="tab active-tab" data-slide="2">Benefit</span>
           <span class="tab" data-slide="3">Cleaning process</span>
       </div>
   </div>

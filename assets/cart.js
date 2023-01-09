@@ -233,7 +233,13 @@ if(header != null ) {
                             ${variant != null ? variant :  ''}
                             <h5>${price}.00 DKK</h5>
                         </div>
-                        <p class="cart-item-remove" data-remove='${i + 1}'>&times;</p>
+                        <div class="cart-item-remove" data-remove='${i + 1}'>
+                            <svg width="20" height="20" viewBox="0 0 20 20">
+                                <path id="Path_58" data-name="Path 58" d="M0,0H20V20H0Z" fill="none"/>
+                                <path id="Path_59" data-name="Path 59" d="M14,5.2h4V6.8H16.4V17.2a.8.8,0,0,1-.8.8H4.4a.8.8,0,0,1-.8-.8V6.8H2V5.2H6V2.8A.8.8,0,0,1,6.8,2h6.4a.8.8,0,0,1,.8.8Zm.8,1.6H5.2v9.6h9.6ZM7.6,9.2H9.2V14H7.6Zm3.2,0h1.6V14H10.8ZM7.6,3.6V5.2h4.8V3.6Z" fill="#9397a2"/>
+                            </svg>
+                            <p>Remove product</p>
+                        </div>
                     </div>
                 </article>
                 `

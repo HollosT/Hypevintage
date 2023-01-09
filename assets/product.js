@@ -10,18 +10,15 @@ if(productPage != null) {
 
     switch (rating) {
         case '1':
-            qualityCondition.innerHTML = 'Poor quality'
-        break;
-        case '2':
             qualityCondition.innerHTML = 'Normal vintage condition with wear'
         break;
-        case '3':
+        case '2':
             qualityCondition.innerHTML = 'Good vintage condition'
         break;
-        case '4':
+        case '3':
             qualityCondition.innerHTML = 'Very good vintage condition'
         break;
-        case '5':
+        case '4':
             qualityCondition.innerHTML = 'New condition'
         break;
     

@@ -68,20 +68,29 @@
     display: flex;
     text-align: center;
     justify-content: space-around;
+    position: relative;
 }
+
 
 
 
 .active-slide {
-    padding: 0vw 5vw;
-    background: var(--black);
+    position: absolute;
+    width: 30vw;
+    background: black;
+    height: 10vw;
+    bottom: 10%;
     border-radius: 100vw;
-    color: white;
+    z-index: 2;
+    transition: all 250ms ease-in-out;
 }
-
 .tab {
-    position: relative;
+    z-index: 100;
     font-size: 0.875rem;
+    width: 30vw;
+}
+.active-tab {
+    color: white;
 }
 
 .slider-title {
