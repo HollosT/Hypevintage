@@ -26,6 +26,12 @@
     height: 10vw;
 }
 
+#filterBtn  {
+    display: flex;
+    flex-direction: row;
+    gap: 3vw;
+}
+
 .active-filters-container {
     display: flex;
     flex-direction: row;
@@ -38,6 +44,14 @@
     color: var(--secondary);
     padding: 1vw 3vw;
     border-radius: 100vw;
+}
+
+.active-filters__clear  {
+    background: #9397A2;
+    color: #F9F9F9;
+    padding: 1vw 3vw;
+    border-radius: 100vw;
+    align-self: center;
 }
 
 .active-filters__remove-filter span {
@@ -159,4 +173,16 @@
 .active-filter-title .menu-arrow{
     transition: all 250ms ease-in-out;
     transform: rotate(180deg);
+}
+
+.active-filters-number {
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    padding: .5vw 2vw;
+    font-size: 0.875rem;
+}
+
+.active-filterBtn {
+    border: 1px solid black;
 }
