@@ -60,8 +60,10 @@
 
         <section class="product-q&a-container">
             {% assign origin_story = product.metafields.custom.origin %}
+            {% assign return_policy = product.metafields.custom.return_policy %}
+            {% assign sizing = product.metafields.custom.sizing %}
 
-            {% render 'product-qanda', origin_story: origin_story %}
+            {% render 'product-qanda', origin_story: origin_story,  return_policy: return_policy, sizing: sizing %}
             
         </section>
         <section class="product-action-container">
