@@ -224,7 +224,7 @@ if(header != null ) {
                     `
                 }
                 return `
-                <article class="cart-item py-500">
+                <a href="${product.url}" class="cart-item py-500">
                     <img src="${product.image}" alt="${product.title}">
                     <div class="cart-content-container">
                         <div class="cart-content">
@@ -241,7 +241,7 @@ if(header != null ) {
                             <p>Remove product</p>
                         </div>
                     </div>
-                </article>
+                </a>
                 `
             }
 

@@ -20,12 +20,19 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     margin: 0 auto;
 }
 
 /* Header Icon */
+.cart-search-container {
+    height: 100%;
+}
 
+.cart-search-container ul {
+    display: flex;
+    flex-direction: row;
+}
 
 .mobile-nav div h1 {
     text-align: center;
@@ -48,6 +55,14 @@
     padding-bottom: 2vw;
     padding-left: 2vw;
 }
+
+ .search-icon-contaner {
+    border-left: 1px solid black;
+    height: 100%;
+    padding: 2vw 3vw;
+}
+
+
 
 
 .hamburger-menu {
@@ -101,7 +116,6 @@
 }
 
 .nav-title {
-
     font-size: 1rem;
     color: black;
  }

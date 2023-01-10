@@ -11,8 +11,13 @@
     {%- comment -%}
     Cart
     {%- endcomment -%}
-  <nav>
+  <nav class="cart-search-container">
       <ul>
+        <li class="mobile-nav_icon--container search-icon-contaner" data-search="true">
+            <span id="searchIcon" class="nav-icon">
+                {% render 'search-icon' %}
+            </span>
+        </li>
         <li class="mobile-nav_icon--container bag-icon-contaner" data-cart="true">
             <span id="cartIcon" class="nav-icon">
                 {% render 'ic-shopping-bag' %}
@@ -26,6 +31,7 @@
 </nav>
 {% render 'hamburger-menu' %}
 {% render 'cart' %}
+{% render 'search' %}
 
 
 

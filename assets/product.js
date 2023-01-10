@@ -6,7 +6,7 @@ if(productPage != null) {
     const quality = document.querySelector('.quality-bar-filled');
     const rating = quality.dataset.quality.slice(0, 1);
  
-    quality.style.width = `${+rating * 19}%`;
+    quality.style.width = `${+rating * 22}%`;
 
     switch (rating) {
         case '1':
