@@ -62,6 +62,7 @@ if(header != null ) {
                         <img src="${product.image}" alt="${product.title}">
                         <div class="cart-content-container">
                             <div class="cart-content">
+                            <p class="brand">${product.tags[0]}</p>
                                 <h4>${product.title}</h4>
                                 <h5>${price}.00 DKK</h5>
                             </div>
