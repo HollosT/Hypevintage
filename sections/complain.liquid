@@ -2,16 +2,16 @@
     <h2 class="py-400">Terms and Condition</h2>
     
     <article class="return-delivery-article border-bottom py-500">
-        <div class="term-title">
-            <h3 class="return-delivery-title py-300" data-term="2">
+        <div class="term-title term-question" data-term="1" data-open="false">
+            <h3 class="return-delivery-title py-300" data-term="1">
                 {% render 'complain' %}
                 {{section.settings.complain_title}}
             </h3>
-            <span class="material-symbols-outlined term-arrow arrow" data-open="false" data-term="2">
+            <span class="material-symbols-outlined term-arrow arrow" data-open="false" data-term="1">
                 expand_less
             </span>
         </div>
-        <div class="term-content hide" data-term="2">
+        <div class="term-content hide" data-term="1">
             <h4 class="return-delivery-subtitle">1.1{{section.settings.complain_subtitle}}</h4>
     
             {% for block in section.blocks %}

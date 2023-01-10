@@ -8,15 +8,17 @@ if(termSections.length > 0) {
 
     containers.forEach(title => {
         title.addEventListener('click', (e) => {
-            const clicked = e.target.closest('.term-arrow')
+            const clicked = e.target.closest('.term-question')
             if (!clicked) return ;
             const id = clicked.dataset.term
             
             if(clicked.dataset.open === 'false') {
                 open(id)
-    
+                clicked.dataset.open = 'true'
             } else if(clicked.dataset.open === 'true') {
                 close(clicked)
+                clicked.dataset.open = 'false'
+
             }
         })
     })
@@ -45,12 +47,11 @@ if(termSections.length > 0) {
 
         arrows.forEach(arrow => {
             if(arrow.dataset.term === id) {
-                // arrow.innerHTML = 'expand_less'
+
                 arrow.classList.add('active-arrow');
-                arrow.dataset.open = 'true'
+                
             } else {
-                arrow.dataset.open = 'false'
-                // arrow.innerHTML = 'expand_more'
+   
 
                 arrow.classList.remove('active-arrow')
 

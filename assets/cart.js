@@ -224,7 +224,7 @@ if(header != null ) {
                     `
                 }
                 return `
-                <a href="${product.url}" class="cart-item py-500">
+                <article class="cart-item py-500" data-remove='${i + 1}'>
                     <img src="${product.image}" alt="${product.title}">
                     <div class="cart-content-container">
                         <div class="cart-content">
@@ -241,7 +241,7 @@ if(header != null ) {
                             <p>Remove product</p>
                         </div>
                     </div>
-                </a>
+                </article>
                 `
             }
 
@@ -273,6 +273,11 @@ if(header != null ) {
                 })
                 .then(res => res.json())
                 .then((data) => {
+                    document.querySelectorAll('.cart-item').forEach(item => {
+                        if(item.dataset.remove === lineNumber) {
+                            item.classList.add('remove-cart-item')
+                        }
+                    })
                     numberOfCartItems.classList.remove('change-cart-item')
                     updateCart();
                     

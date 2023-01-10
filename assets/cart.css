@@ -145,3 +145,11 @@
         scale: 1.3;
     }
 }
+
+.cart-item {
+    transition: all 250ms ease-out;
+}
+
+.remove-cart-item {
+    transform: translateX(100vw);
+}
