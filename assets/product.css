@@ -1,7 +1,34 @@
+
+.product-image-container {
+    position: relative;
+    height: 100vw;
+}
+
 .product-img {
-    width: 100vw;
     object-fit: contain;
     aspect-ratio: 1/ 1;
+    transition: all 250ms ease-in-out;
+}
+
+.product-sub-image {
+    position: absolute;
+    width: 20vw;
+    z-index: 10;
+    bottom: 0%;
+    right: 0;
+}
+
+.grow-image {
+    width: 100vw;
+    z-index: 11;
+
+}
+
+.product-main-img {
+    position: relative;
+    width: 100vw;
+    height: 100vw;
+    z-index: 1;
 }
 
 .description-container {

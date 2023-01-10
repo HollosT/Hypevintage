@@ -4,7 +4,15 @@
 <section id="productPgae">
 
     <section data-width="max">
-        <img class="product-img" src="{{  product_image | img_url: 'large' }}" alt="{{  product_image.alt }}">
+        <div class="product-image-container">
+
+            <img class="product-img product-main-img" src="{{ product_image | img_url: 'large'}}" alt="{{ product_image.alt }}">
+            {% for image in product.images %}
+                {% if image.src != product_image %}
+                <img class="product-img product-sub-image" src="{{image.src | img_url: 'large'}}" alt="{{image.alt}}">    
+                {% endif %}
+            {% endfor %}
+        </div>
     </section>
     <section data-width="less">
     
@@ -12,12 +20,14 @@
             <p class="brand-description py-200">{{ product.metafields.custom.brand }}</p>
             <h2 class="py-200">{{ product.title }}</h2>
             <div class="description-option-container py-200">
+                    <p>Size:</p>
                 {% for value in product.options_by_name.size.values %}
-                    <p>Size: {{ value }}</p>
+                    <p> {{ value }}</p>
                  {% endfor %}
                  <p> | </p>
+                 <p>Color:</p>
                 {% for value in product.options_by_name.color.values %}
-                    <p>Color: {{ value }}</p>
+                    <p> {{ value }}</p>
                  {% endfor %}  
             </div>
             <div class="product-price-container py-200">
