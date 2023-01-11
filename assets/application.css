@@ -84,7 +84,7 @@ body {
 
 section[data-width="max"] {
     /* margin: 0 auto; */
-    width: 100vw;
+    width: 100%;
 }
 section[data-width="less"] {
     margin: 0 auto;

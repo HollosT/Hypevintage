@@ -48,7 +48,7 @@ if(header != null ) {
         .then(data => {
             
             const products = data.resources.results.products;
-            console.log(products);
+           
             searchItemContainer.innerHTML = '';
 
             if(products.length > 0) {

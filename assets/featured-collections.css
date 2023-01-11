@@ -42,7 +42,7 @@
 .product-container .featured-collection-img {
     object-fit: fill;
     width: 200px;
-    height: 230px;
+    /* height: 230px; */
 }
 
 .featured-collection-header a {

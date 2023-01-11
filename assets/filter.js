@@ -25,8 +25,7 @@ if(filterPage != null) {
     const getActiveFilters = () => {
         const activeFilters = document.querySelectorAll('.active-filters').length;
         
-  
-       if(activeFilters > 0) {
+         if(activeFilters > 0) {
 
             activeFiltersNumber.innerHTML = activeFilters
             activeFiltersNumber.classList.remove('hide')
