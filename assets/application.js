@@ -73,9 +73,8 @@ if(filterFormBtn != null) {
 }
 
 //Hamburger Menu 
-const hamburgerIcon = document.querySelector('#hamburgerIcon');
 
-if(hamburgerIcon != null ) {
+if(header != null ) {
     const hamburgerMenu = document.querySelector('#hamburgerMenu');
     const mobileNavBar = document.querySelector('.mobile-nav');
     const navCloseX = document.querySelector('#navCloseX');
@@ -88,7 +87,7 @@ if(hamburgerIcon != null ) {
          if(hamburgerMenu.classList.contains('opened')) {
             // hamburgerMenu.style.marginTop = `0px`
             hamburgerMenu.classList.remove('opened')
-            //  document.body.classList.remove('stop-scroll')
+        
          } else {
             // hamburgerMenu.style.marginTop = `${mobileNavBarHeight}px`
             hamburgerMenu.classList.add('opened')

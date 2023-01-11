@@ -1,25 +1,25 @@
 if(header != null ) {
-    const mobileNavBar = document.querySelector('#header')
-    const mobileNavBarHeight = mobileNavBar.getBoundingClientRect().height;
+    // const mobileNavBar = document.querySelector('#header')
     const searchBtn = document.querySelector('.search-icon-contaner')
     const searchIcon = document.querySelector('#SearchSVG');
     const searchInputField = document.querySelector('#searchInputField')
     const searchItemContainer = document.querySelector('#searchItemContainer')
+    const navCloseX = document.querySelector('#navCloseX');
+
     let timer;
-
-
+    
+    
     //Open cart
+    const searchTop = searchBtn.getBoundingClientRect().y;
+    const searchHeight = searchBtn.getBoundingClientRect().height;
+    
     const searchContainer = document.querySelector('#searchContainer');
-    searchContainer.style.marginTop = `${mobileNavBarHeight}px`;
+    searchContainer.style.marginTop = `${searchTop + searchHeight}px`;
     
     searchBtn.addEventListener('click', (e) => {
         if(searchContainer.classList.contains('open-search')) {
 
-            searchIcon.classList.add('inactive-search-icon')
-            searchIcon.classList.remove('active-search-icon')
-
-            searchContainer.classList.add('close-search')
-            searchContainer.classList.remove('open-search')
+            closeSearch()
 
         } else {
             searchIcon.classList.remove('inactive-search-icon')
@@ -30,6 +30,18 @@ if(header != null ) {
           
          }
     })
+
+    navCloseX.addEventListener('click', () => {
+        closeSearch()
+    })
+
+    const closeSearch = () => {
+        searchIcon.classList.add('inactive-search-icon')
+        searchIcon.classList.remove('active-search-icon')
+
+        searchContainer.classList.add('close-search')
+        searchContainer.classList.remove('open-search')
+    }
 
     // Init search after typing
     searchInputField.addEventListener('input', function(e) {
