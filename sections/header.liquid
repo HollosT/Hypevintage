@@ -1,4 +1,4 @@
-<nav class="nav-wrapper">
+<div class="nav-wrapper">
   <nav class="mobile-nav" id="header">
   <div>
     <div class="mobile-nav_icon--container hamburger-icon-contaner">
@@ -7,8 +7,7 @@
       </span>
     </div>
     <a href="/">
-      <h1>{% render 'hypevintage-logo' %}</h1>
-  
+      {% render 'hypevintage-logo' %}
     </a>
 
     {%- comment -%}
@@ -31,7 +30,10 @@
     </nav>
   </div>
 </nav>
-</nav>
+</div>
+
+
+  
 {% render 'hamburger-menu' %}
 {% render 'cart' %}
 {% render 'search' %}

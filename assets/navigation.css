@@ -1,27 +1,24 @@
 /* Mobile navigation */
 .mobile-nav {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    margin-bottom: 5vw;
+    border-top: 1px solid var(--black);
+    border-bottom: 1px solid var(--black);
     width: 100vw;
     background: var(--main);
     z-index: 120;
     position: fixed;
-    margin-bottom: 10vw;
 }
-
-.nav-wrapper {
-    padding-bottom: 10vw;
-}
-
 
 .mobile-nav > div {
-    width: var(--site-width);
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
+}
+
+.nav-wrapper {
+    height: 60px;
 }
 
 /* Header Icon */
@@ -41,25 +38,19 @@
 }
 
 .hamburger-icon-contaner {
-    height: 100%;
-    border-right: 1px solid black;
-    padding-top: 2vw;
-    padding-bottom: 2vw;
-    padding-right: 2vw;
+    border-right: 1px solid var(--black);
+    padding: 16px;
+
     
 }
 .bag-icon-contaner {
-    height: 100%;
-    border-left: 1px solid black;
-    padding-top: 2vw;
-    padding-bottom: 2vw;
-    padding-left: 2vw;
+    border-left: 1px solid var(--black);
+    padding: 16px;
 }
 
  .search-icon-contaner {
-    border-left: 1px solid black;
-    height: 100%;
-    padding: 2vw 3vw;
+    border-left: 1px solid var(--black);
+    padding: 16px;
 }
 
 
@@ -103,6 +94,7 @@
 
 .main-nav li {
     border-bottom: 1px solid var(--border);
+    padding: 16px 0 16px 0;
 }
 .main-nav li:first-child {
     border-top: 1px solid var(--border);
@@ -117,7 +109,7 @@
 
 .nav-title {
     font-size: 1rem;
-    color: black;
+    color: var(--black);
  }
 
  .subnav-container {
@@ -130,7 +122,13 @@
 
 .sub-sub-nav {
     margin-left: 5vw;
+    margin-top: 16px;
 }
+
+.sub-nav {
+    margin-top: 30px;
+}
+
 .menu-arrow  {
     
     transition: all 250ms ease-in-out;
@@ -158,5 +156,3 @@
     width: 90%;
     margin: 0 auto;
  }
-
- 

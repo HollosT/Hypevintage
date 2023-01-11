@@ -1,16 +1,23 @@
+/* Roboto font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+
 /* CSS variables */
 :root {
 
     /* Site width */
-    --site-width: 90%;
+    --site-width: 94%;
 
     /* Icon size */
     --icon-size: 1.5;
 
     /* Font family */
-    --font-family: "Roboto", Times, serif;
+    --font-family: "Roboto", sans-serif;
 
     /* Font sizes */
+
+    /* Default */
+    --fs-default: 16px;
+    /*  */
     --fs-50: .8vw;
     --fs-100: 1vw;
     --fs-150: 2vw;
@@ -26,7 +33,10 @@
     --fw-300: 300;
     --fw-600: 600;
     --fw-900: 900;
-    --fw-bold: bold;
+    --fw-bold: 700;
+    --fw-normal: 400;
+    --fw-medium: 500;
+    --fw-regitalic: 1,400;
     --fw-bolder: bolder;
     --fw-lighter: lighter;
 
@@ -43,11 +53,19 @@
     --s-1000: 10vw;
 
     /* Colors */
-    --black: black;
-    --secondary: #484B54;
+    --black: #191A1D;
+    --secondary: #60646F;
     --main: #FBF7F5;
-    --border: #E7E9EE
-
+    --border: #C9CBD2;
+    --black90: #2E3037;
+    --black80: #484B54;
+    --black70: #60646F;
+    --black60: #787C8A;
+    --black50: #9397A2;
+    --black40: #AEB1BA;
+    --black30: #C9CBD2; 
+    --black20: #E7E9EE;
+    --white: #F9F9F9;
 }
 
 
@@ -82,7 +100,7 @@ nav {
 a {
     text-decoration: none;
     color: var(--secondary);
-    font-size: var(--fs-200);
+    font-size: var(--fs-default);
 }
 
 li {
@@ -123,7 +141,7 @@ p {
     font-size: 1rem;
     font-weight: var(--fw-100);
     color: var(--secondary);
-    line-height: 1.3;
+    line-height: 1.7;
 }
 
 @media (min-width: 600px) {
@@ -134,16 +152,17 @@ p {
 
 /* Buttons */
 .btn {
-    border: .1vw solid var(--black);
-    padding: 2vw;
+    border: 1px solid var(--black);
+    padding: 16px 0 16px 0;
     color: var(--black);
     text-align: center;
-    font-size: .9rem;
+    font-size: 1rem;
     font-weight: 400;
-    background-color: white;
+    background-color: var(--white);
 }
+
 .btn-active {
-    color: white;
+    color: var(--white);
     background: var(--black);
 }
 
@@ -255,6 +274,23 @@ p {
     padding-bottom: var(--s-700);
 }
 
+/* Paddings Top */
+.pt-100 {
+    padding-top: var(--s-100);
+}
+
+.pt-200 {
+    padding-top: var(--s-200);
+}
+
+.pt-300 {
+    padding-top: var(--s-300);
+}
+
+.pt-700 {
+    padding-top: var(--s-700);
+}
+
 /* Margin X */
 .mx-50 {
     padding: var(--s-50) 0;
@@ -323,4 +359,9 @@ p {
 
 .mt-700 {
     margin-top: var(--s-700);
+}
+
+
+.main-nav > li > a {
+    color: var(--black);
 }

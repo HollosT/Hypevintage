@@ -1,5 +1,5 @@
 
-<section class="py-500">
+<section>
     {% if section.settings.image != blank %}
         <img class="hero-img" src="{{ section.settings.image | img_url: 'master' }}" alt="{{ section.settings.image.alt }}">
         {% else %}
@@ -8,7 +8,7 @@
     {% endif %}
 
     <section class="hero-content-container" data-width="less">
-        <h2 class="py-400">{{ section.settings.title }}</h2>
+        <h2 class="pb-200 pt-700">{{ section.settings.title }}</h2>
         {{ section.settings.description }}       
     </section>
 </section>

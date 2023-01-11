@@ -162,3 +162,11 @@
     justify-content: center;
     margin-block: 4vw;
 }
+
+
+/* Featured collection */
+
+.featured-collection-header > h3 {
+    font-weight: 500;
+    font-size: 1.25rem;
+}

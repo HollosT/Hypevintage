@@ -8,17 +8,21 @@
     justify-content: space-between;
     justify-items: baseline;
 }
+
+
+
 .featured-collection-header h3 {
+    font-weight: 500;
     font-size: 1.25rem;
-    font-weight: 400;
 }
+
 
 .featured-collection-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     overflow: scroll;
-    padding: 8vw;
-    gap: 8vw;
+    gap: 20px;
+    margin-top: 25px;
     /* width: 100%;
     margin-left: 5%; */
 
@@ -27,7 +31,6 @@
 
 .product-container {
     position: relative;
-    height: 50vw;
 }
 
 .product-container .icon {
@@ -38,8 +41,8 @@
 
 .product-container .featured-collection-img {
     object-fit: fill;
-    aspect-ratio: 1;
-    width: 50vw;
+    width: 200px;
+    height: 230px;
 }
 
 .featured-collection-header a {
@@ -48,4 +51,31 @@
     justify-items: baseline;
     text-align: center;
     align-items: center;
+}
+
+.featured-collection-section {
+    margin-left: 16px;
+}
+
+.product-info > p {
+    font-size: 0.75rem;
+    color: var(--black50);
+}
+
+.product-info > h3 {
+    font-size: 1rem;
+    color: var(--black);
+    font-weight: var(--fw-normal);
+}
+
+.product-info > .product-price {
+    font-size: 0.875rem;
+    font-weight: var(--fw-bold);
+    color: var(--black);
+}
+
+.product-info {
+   display: flex;
+   flex-direction: column;
+   gap: 4px;
 }
