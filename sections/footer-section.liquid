@@ -78,8 +78,6 @@
       </div>
   </footer>
 
-  {%- comment -%} Bootstrap is being used to breach some issue with css. https://getbootstrap.com/  {%- endcomment -%}
-  {{ 'bootstrap.min.js' | asset_url | script_tag }}
   {{ 'application.js' | asset_url | script_tag }}
   {{ 'mobile-category.js' | asset_url | script_tag }}
   {{ 'slideshow.js' | asset_url | script_tag }}
