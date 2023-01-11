@@ -12,6 +12,12 @@
                 </div>
                 <div class="answer hide" data-faq="{{block.id}}">
                     <p>{{ block.settings.answer }}</p>
+                    {% if block.settings.url != blank %}
+                    <div class="underline-container">
+                        <a href="{{url}}" class="underline">{{block.settings.btn_label}}</a>
+                    
+                    </div>
+                    {% endif %}
                 </div>
 
             </article>    
@@ -47,6 +53,16 @@
                         "type": "richtext",
                         "id": "answer",
                         "label": "Answer"
+                    },
+                    {
+                        "type": "url",
+                        "id": "url",
+                        "label": "Button url"
+                    },
+                    {
+                        "type": "text",
+                        "id": "btn_label",
+                        "label": "Button label"
                     }
                 ]
             }

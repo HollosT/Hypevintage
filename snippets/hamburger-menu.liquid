@@ -4,7 +4,7 @@
     {% render 'hypevintage-logo' %}
     <span id="navCloseX">{% render 'ic-close-nav' %}</span>
   </div>
-  <span id="searchIcon" class="search-icon-contaner py-300" data-search="true">
+  <span id="searchIcon" class="search-icon-contaner" data-search="true">
     {% render 'search-icon' %}
     <input id="searchInputField" class="search-input-field " type="text" placeholder="Search for products...">
   
@@ -13,7 +13,7 @@
   {%- comment -%}
     Main menu
   {%- endcomment -%}
-    <ul class="main-nav py-300">
+    <ul class="main-nav">
       {% for link in linklists.main-menu.links %}
         {% assign child_list_handle = link.title | handleize %}
         {% if linklist[child_list_handle].links != blank %}
