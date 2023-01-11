@@ -3,7 +3,7 @@
     <div class="faq-container">
         {% for block in section.blocks %}
         {% assign item = block.settings %}
-            <article class="faq py-500" data-faq="{{block.id}}">
+            <article class="faq" data-faq="{{block.id}}">
                 <div class="question py-200"data-faq="{{block.id}}" data-open="false" >
                     <h5>{{block.settings.title}}</h5>
                     <span class="material-symbols-outlined arrow" data-faq="{{block.id}}" data-open="false">

@@ -5,6 +5,7 @@
 
 .faq {
     border-bottom: 1px solid black;
+    padding: 12px 0 8px;
 }
 .faq h5 {
     font-size: 1rem;
@@ -32,7 +33,6 @@
 }
 
 .faq-p {
-    margin-top: 5vw;
     font-weight: bolder;
     color: var(--black);
     font-size: 1.1rem;
