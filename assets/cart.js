@@ -78,7 +78,6 @@ if(header != null ) {
                             }
                         ]
                     };
-
                     fetch('/cart/add.js', {
                         method: 'POST',
                         headers: {
@@ -91,9 +90,7 @@ if(header != null ) {
                     })
                     .then((data) => {
                         numberOfCartItems.classList.remove('change-cart-item')
-                        updateCart();
-                        
-                        
+                        updateCart();                    
                     })
                     .catch((err) => {
                         console.error('Error: ' + err);
